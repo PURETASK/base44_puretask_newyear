@@ -228,7 +228,7 @@ export default function GPSCheckIn({ booking, onCheckInComplete, onCheckOutCompl
           <Button
             onClick={handleGetLocation}
             disabled={loading}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+            className="w-full bg-system hover:bg-system/90 text-white font-heading font-semibold"
             size="lg"
           >
             {loading ? (

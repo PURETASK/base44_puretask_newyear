@@ -132,8 +132,8 @@ export default function JobStartCheckIn({ booking, onSuccess }) {
           )}
         </Alert>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm font-verdana">
-          <p className="font-semibold mb-2">Before Starting:</p>
+        <div className="bg-system-soft border border-system-border rounded-lg p-4 text-sm font-body">
+          <p className="font-heading font-semibold mb-2 text-system-text">Before Starting:</p>
           <ul className="list-disc list-inside space-y-1 text-gray-700">
             <li>Ensure you're at the correct address</li>
             <li>Have all necessary cleaning supplies ready</li>
