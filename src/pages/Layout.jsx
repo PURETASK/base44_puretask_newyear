@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { handleError } from '@/lib/errorHandler';
 import { cacheManager } from '@/lib/cacheManager';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -92,8 +92,8 @@ export default function Layout({ children, currentPageName }) {
       return;
     }
 
-    // Only set up interval if user is loaded and not null
-    // Wrap in try-catch to prevent reload loops
+    // Stable function reference using useCallback would cause issues, so we define inline
+    // This useEffect only re-runs when user or loading changes, which is acceptable
     const loadCounts = async () => {
       try {
         await loadUnreadCount(user);
@@ -104,15 +104,17 @@ export default function Layout({ children, currentPageName }) {
       }
     };
     
+    // Load counts immediately
     loadCounts();
 
+    // Set up interval to poll every 30 seconds
     const interval = setInterval(() => {
-      // Use the current user from the state or re-fetch from cache within loadUnreadCount
       loadCounts();
     }, 30000); // 30 seconds
     
+    // Cleanup interval on unmount or when dependencies change
     return () => clearInterval(interval);
-  }, [user, loading]); // Re-run when `user` or `loading` state changes
+  }, [user?.email, loading]); // Only re-run when user email or loading changes
 
   const loadUserAndUnreadCount = async () => {
     try {
@@ -155,11 +157,12 @@ export default function Layout({ children, currentPageName }) {
 
         setLoading(false);
         // Still attempt to refresh data in background if cache was used, for freshness
-        // but don't wait for it.
+        // but don't wait for it. IMPORTANT: Don't update user state to prevent re-triggering useEffect
         base44.auth.me().then(freshUser => {
           if (freshUser && freshUser.email === currentUser.email) { // Ensure it's the same user
-            setUser(freshUser);
+            // Only update cache, DON'T call setUser to avoid triggering useEffect loop
             cacheManager.set('currentUser', freshUser, 30 * 60 * 1000);
+            // Silently refresh unread count in background
             loadUnreadCount(freshUser); // Refresh unread count
             setAnalyticsUser(freshUser); // Update analytics user with fresh data
           }
