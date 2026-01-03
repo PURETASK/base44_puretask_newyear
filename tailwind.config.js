@@ -10,6 +10,44 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+  			// PureTask Brand Colors (LOCKED)
+  			brand: {
+  				primary: '#00FFFF',
+  			},
+  			
+  			// Semantic Colors
+  			success: {
+  				DEFAULT: '#22C55E',
+  				soft: '#ECFDF5',
+  				border: '#86EFAC',
+  				text: '#166534',
+  			},
+  			system: {
+  				DEFAULT: '#06B6D4',
+  				soft: '#ECFEFF',
+  				border: '#67E8F9',
+  				text: '#164E63',
+  			},
+  			warning: {
+  				DEFAULT: '#F59E0B',
+  				soft: '#FFFBEB',
+  				border: '#FCD34D',
+  				text: '#92400E',
+  			},
+  			error: {
+  				DEFAULT: '#EF4444',
+  				soft: '#FEF2F2',
+  				border: '#FCA5A5',
+  				text: '#991B1B',
+  			},
+  			info: {
+  				DEFAULT: '#3B82F6',
+  				soft: '#EFF6FF',
+  				border: '#93C5FD',
+  				text: '#1E3A8A',
+  			},
+  			
+  			// shadcn/ui compatibility (kept for existing components)
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -60,6 +98,15 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			}
+  		},
+  		fontFamily: {
+  			heading: ['Poppins', 'system-ui', 'sans-serif'],
+  			body: ['Quicksand', 'system-ui', 'sans-serif'],
+  			mono: ['Fira Code', 'Consolas', 'monospace'],
+  		},
+  		fontSize: {
+  			display: ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+  			'display-sm': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
   		},
   		keyframes: {
   			'accordion-down': {
