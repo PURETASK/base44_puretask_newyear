@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PureTask Design System - Test Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#00FFFF',
+                        },
+                        success: {
+                            DEFAULT: '#22C55E',
+                            soft: '#ECFDF5',
+                            border: '#86EFAC',
+                            text: '#166534',
+                        },
+                        system: {
+                            DEFAULT: '#06B6D4',
+                            soft: '#ECFEFF',
+                            border: '#67E8F9',
+                            text: '#164E63',
+                        },
+                        warning: {
+                            DEFAULT: '#F59E0B',
+                            soft: '#FFFBEB',
+                            border: '#FCD34D',
+                            text: '#92400E',
+                        },
+                        error: {
+                            DEFAULT: '#EF4444',
+                            soft: '#FEF2F2',
+                            border: '#FCA5A5',
+                            text: '#991B1B',
+                        },
+                        info: {
+                            DEFAULT: '#3B82F6',
+                            soft: '#EFF6FF',
+                            border: '#93C5FD',
+                            text: '#1E3A8A',
+                        },
+                    },
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Quicksand', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 p-8">
+    <div class="max-w-7xl mx-auto space-y-8">
+        
+        <!-- Header -->
+        <div class="text-center space-y-4">
+            <h1 class="font-heading text-5xl font-bold text-slate-900">
+                🎨 PureTask Design System Test
+            </h1>
+            <p class="font-body text-xl text-slate-600">
+                All Tailwind tokens rendering correctly
+            </p>
+        </div>
+
+        <!-- Brand Color -->
+        <section class="bg-white rounded-xl p-6 space-y-4">
+            <h2 class="font-heading text-3xl font-bold text-slate-900">Brand Color</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                    <div class="bg-brand-primary h-24 rounded-lg mb-2"></div>
+                    <p class="font-body text-sm">brand-primary</p>
+                    <p class="font-body text-xs text-slate-500">#00FFFF</p>
+                </div>
+            </div>
+            <button class="bg-brand-primary text-slate-900 font-heading font-semibold px-6 py-3 rounded-lg">
+                Brand Primary Button
+            </button>
+        </section>
+
+        <!-- Success Colors -->
+        <section class="bg-white rounded-xl p-6 space-y-4">
+            <h2 class="font-heading text-3xl font-bold text-slate-900">Success / Reliability (Green)</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                    <div class="bg-success h-24 rounded-lg mb-2"></div>
+                    <p class="font-body text-sm">success</p>
+                    <p class="font-body text-xs text-slate-500">#22C55E</p>
+                </div>
+                <div>
+                    <div class="bg-success-soft h-24 rounded-lg mb-2 border border-success-border"></div>
+                    <p class="font-body text-sm">success-soft</p>
+                    <p class="font-body text-xs text-slate-500">#ECFDF5</p>
+                </div>
+                <div>
+                    <div class="bg-white h-24 rounded-lg mb-2 border-4 border-success-border"></div>
+                    <p class="font-body text-sm">success-border</p>
+                    <p class="font-body text-xs text-slate-500">#86EFAC</p>
+                </div>
+                <div>
+                    <div class="bg-white h-24 rounded-lg mb-2 flex items-center justify-center">
+                        <span class="text-success-text font-body font-bold text-3xl">87</span>
+                    </div>
+                    <p class="font-body text-sm">success-text</p>
+                    <p class="font-body text-xs text-slate-500">#166534</p>
+                </div>
+            </div>
+            <div class="space-y-3">
+                <div class="bg-success text-white font-heading font-bold text-3xl px-6 py-3 rounded-lg inline-block">
+                    Reliability Score: 87
+                </div>
+                <div class="bg-success-soft border-l-4 border-success rounded-lg p-4">
+                    <p class="text-success-text font-body font-semibold">Job Completed Successfully ✓</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Colors -->
+        <section class="bg-white rounded-xl p-6 space-y-4">
+            <h2 class="font-heading text-3xl font-bold text-slate-900">System / Tracking (Cyan)</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                    <div class="bg-system h-24 rounded-lg mb-2"></div>
+                    <p class="font-body text-sm">system</p>
+                    <p class="font-body text-xs text-slate-500">#06B6D4</p>
+                </div>
+                <div>
+                    <div class="bg-system-soft h-24 rounded-lg mb-2 border border-system-border"></div>
+                    <p class="font-body text-sm">system-soft</p>
+                    <p class="font-body text-xs text-slate-500">#ECFEFF</p>
+                </div>
+                <div>
+                    <div class="bg-white h-24 rounded-lg mb-2 border-4 border-system-border"></div>
+                    <p class="font-body text-sm">system-border</p>
+                    <p class="font-body text-xs text-slate-500">#67E8F9</p>
+                </div>
+                <div>
+                    <div class="bg-white h-24 rounded-lg mb-2 flex items-center justify-center">
+                        <span class="text-system-text font-body font-bold text-xl">GPS Active</span>
+                    </div>
+                    <p class="font-body text-sm">system-text</p>
+                    <p class="font-body text-xs text-slate-500">#164E63</p>
+                </div>
+            </div>
+            <div class="bg-system-soft border-l-4 border-system rounded-lg p-4">
+                <h4 class="font-heading font-semibold text-system-text mb-2">🗺️ Cleaner Checked In</h4>
+                <p class="font-body text-system-text">GPS verified at 2:45 PM</p>
+            </div>
+        </section>
+
+        <!-- Warning Colors -->
+        <section class="bg-white rounded-xl p-6 space-y-4">
+            <h2 class="font-heading text-3xl font-bold text-slate-900">Warning (Amber)</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                    <div class="bg-warning h-24 rounded-lg mb-2"></div>
+                    <p class="font-body text-sm">warning</p>
+                    <p class="font-body text-xs text-slate-500">#F59E0B</p>
+                </div>
+                <div>
+                    <div class="bg-warning-soft h-24 rounded-lg mb-2 border border-warning-border"></div>
+                    <p class="font-body text-sm">warning-soft</p>
+                </div>
+                <div>
+                    <div class="bg-white h-24 rounded-lg mb-2 border-4 border-warning-border"></div>
+                    <p class="font-body text-sm">warning-border</p>
+                </div>
+                <div>
+                    <div class="bg-white h-24 rounded-lg mb-2 flex items-center justify-center">
+                        <span class="text-warning-text font-body font-bold">⚠️ Pending</span>
+                    </div>
+                    <p class="font-body text-sm">warning-text</p>
+                </div>
+            </div>
+            <div class="bg-warning-soft border-l-4 border-warning rounded-lg p-4">
+                <p class="text-warning-text font-body font-semibold">⚠️ Payment Pending Review</p>
+            </div>
+        </section>
+
+        <!-- Error Colors -->
+        <section class="bg-white rounded-xl p-6 space-y-4">
+            <h2 class="font-heading text-3xl font-bold text-slate-900">Error (Red)</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                    <div class="bg-error h-24 rounded-lg mb-2"></div>
+                    <p class="font-body text-sm">error</p>
+                    <p class="font-body text-xs text-slate-500">#EF4444</p>
+                </div>
+                <div>
+                    <div class="bg-error-soft h-24 rounded-lg mb-2 border border-error-border"></div>
+                    <p class="font-body text-sm">error-soft</p>
+                </div>
+                <div>
+                    <div class="bg-white h-24 rounded-lg mb-2 border-4 border-error-border"></div>
+                    <p class="font-body text-sm">error-border</p>
+                </div>
+                <div>
+                    <div class="bg-white h-24 rounded-lg mb-2 flex items-center justify-center">
+                        <span class="text-error-text font-body font-bold">❌ Error</span>
+                    </div>
+                    <p class="font-body text-sm">error-text</p>
+                </div>
+            </div>
+            <div class="bg-error-soft border-l-4 border-error rounded-lg p-4">
+                <p class="text-error-text font-body font-semibold">❌ Booking Cancelled</p>
+            </div>
+        </section>
+
+        <!-- Info Colors -->
+        <section class="bg-white rounded-xl p-6 space-y-4">
+            <h2 class="font-heading text-3xl font-bold text-slate-900">Info (Blue)</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                    <div class="bg-info h-24 rounded-lg mb-2"></div>
+                    <p class="font-body text-sm">info</p>
+                    <p class="font-body text-xs text-slate-500">#3B82F6</p>
+                </div>
+                <div>
+                    <div class="bg-info-soft h-24 rounded-lg mb-2 border border-info-border"></div>
+                    <p class="font-body text-sm">info-soft</p>
+                </div>
+                <div>
+                    <div class="bg-white h-24 rounded-lg mb-2 border-4 border-info-border"></div>
+                    <p class="font-body text-sm">info-border</p>
+                </div>
+                <div>
+                    <div class="bg-white h-24 rounded-lg mb-2 flex items-center justify-center">
+                        <span class="text-info-text font-body font-bold">ℹ️ Info</span>
+                    </div>
+                    <p class="font-body text-sm">info-text</p>
+                </div>
+            </div>
+            <div class="bg-info-soft border-l-4 border-info rounded-lg p-4">
+                <p class="text-info-text font-body font-semibold">ℹ️ New message from cleaner</p>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="bg-white rounded-xl p-6 space-y-4">
+            <h2 class="font-heading text-3xl font-bold text-slate-900">Typography</h2>
+            <div class="space-y-4">
+                <div>
+                    <p class="font-body text-sm text-slate-500 mb-2">Headings (Poppins)</p>
+                    <h1 class="font-heading text-5xl font-bold text-slate-900">Heading 1</h1>
+                    <h2 class="font-heading text-4xl font-bold text-slate-900">Heading 2</h2>
+                    <h3 class="font-heading text-3xl font-semibold text-slate-900">Heading 3</h3>
+                    <h4 class="font-heading text-2xl font-semibold text-slate-900">Heading 4</h4>
+                </div>
+                <div>
+                    <p class="font-body text-sm text-slate-500 mb-2">Body Text (Quicksand)</p>
+                    <p class="font-body text-base text-slate-700">
+                        This is body text using Quicksand. It's designed for readability and clarity in longer passages of text.
+                    </p>
+                    <p class="font-body text-sm text-slate-600">
+                        Smaller body text for captions and supporting information.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status -->
+        <section class="bg-success-soft border border-success-border rounded-xl p-6 text-center">
+            <h3 class="font-heading text-2xl font-bold text-success-text mb-2">
+                ✅ All Design System Tokens Working!
+            </h3>
+            <p class="font-body text-success-text">
+                Colors, typography, and spacing rendering correctly
+            </p>
+        </section>
+
+    </div>
+</body>
+</html>
+
