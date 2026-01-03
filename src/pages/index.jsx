@@ -144,6 +144,8 @@ import ClientSignupComplete from "./ClientSignupComplete";
 
 import DamageClaimsPolicy from "./DamageClaimsPolicy";
 
+import DesignSystemDemo from "./DesignSystemDemo";
+
 import FavoriteCleaners from "./FavoriteCleaners";
 
 import FinanceDashboard from "./FinanceDashboard";
@@ -380,6 +382,8 @@ const PAGES = {
     
     DamageClaimsPolicy: DamageClaimsPolicy,
     
+    DesignSystemDemo: DesignSystemDemo,
+    
     FavoriteCleaners: FavoriteCleaners,
     
     FinanceDashboard: FinanceDashboard,
@@ -492,7 +496,7 @@ function PagesContent() {
         <Layout currentPageName={currentPage}>
             <Routes>            
                 
-                    <Route path="/" element={<AIActivityDashboard />} />
+                    <Route path="/" element={<Home />} />
                 
                 
                 <Route path="/AIActivityDashboard" element={<AIActivityDashboard />} />
@@ -638,6 +642,8 @@ function PagesContent() {
                 <Route path="/ClientSignupComplete" element={<ClientSignupComplete />} />
                 
                 <Route path="/DamageClaimsPolicy" element={<DamageClaimsPolicy />} />
+                
+                <Route path="/DesignSystemDemo" element={<DesignSystemDemo />} />
                 
                 <Route path="/FavoriteCleaners" element={<FavoriteCleaners />} />
                 
