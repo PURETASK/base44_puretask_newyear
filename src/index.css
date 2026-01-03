@@ -155,4 +155,9 @@ button:focus-visible {
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Ensure paragraphs and spans have readable colors */
+  p:not([class*="text-"]) {
+    color: inherit;
+  }
 }

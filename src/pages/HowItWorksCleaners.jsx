@@ -83,14 +83,14 @@ export default function HowItWorksCleaners() {
   return (
     <div className="min-h-screen bg-soft-cloud">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-fresh-mint to-emerald-600 text-white py-20">
+      <section className="bg-gradient-to-br from-fresh-mint to-emerald-600 py-20">
         <div className="container mx-auto px-6 text-center">
-          <Badge className="mb-6 bg-white/20 text-white px-6 py-2 text-lg rounded-full font-fredoka">
+          <Badge className="mb-6 bg-white/20 text-white px-6 py-2 text-lg rounded-full font-fredoka inline-flex items-center">
             <Zap className="w-5 h-5 mr-2" />
             For Cleaners
           </Badge>
-          <h1 className="text-5xl lg:text-6xl font-fredoka font-bold mb-6">How PureTask Works for Cleaners</h1>
-          <p className="text-xl font-verdana max-w-2xl mx-auto">
+          <h1 className="text-5xl lg:text-6xl font-fredoka font-bold mb-6 text-white">How PureTask Works for Cleaners</h1>
+          <p className="text-xl font-verdana max-w-2xl mx-auto text-white">
             Build your cleaning business with flexible hours, fair pay, and complete independence
           </p>
         </div>

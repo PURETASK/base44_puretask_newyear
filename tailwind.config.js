@@ -15,6 +15,12 @@ module.exports = {
   				primary: '#00FFFF',
   			},
   			
+  			// PureTask Custom Colors (used throughout app)
+  			'fresh-mint': '#10B981',  // emerald-500/green-500
+  			'soft-cloud': '#F8FAFC',  // slate-50
+  			'graphite': '#0F172A',    // slate-900
+  			'puretask-blue': '#0078FF', // brand blue
+  			
   			// Semantic Colors
   			success: {
   				DEFAULT: '#22C55E',
