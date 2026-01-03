@@ -157,9 +157,9 @@ export default function Home() {
                   </div>
 
                   {/* SERVICE TYPE - MAJOR FOCUS */}
-                  <div className="p-4 sm:p-6 border-4 border-puretask-blue rounded-2xl bg-blue-50 shadow-lg">
-                    <label className="block text-base sm:text-lg font-fredoka font-bold mb-3 sm:mb-4 text-graphite flex items-center gap-2">
-                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-puretask-blue" />
+                  <div className="p-4 sm:p-6 border-4 border-system rounded-2xl bg-system-soft shadow-lg">
+                    <label className="block text-base sm:text-lg font-heading font-bold mb-3 sm:mb-4 text-graphite flex items-center gap-2">
+                      <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-system" />
                       Service Type *
                     </label>
                     <div className="grid grid-cols-1 gap-3">
