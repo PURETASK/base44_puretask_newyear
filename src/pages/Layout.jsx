@@ -68,34 +68,34 @@ export default function Layout({ children, currentPageName }) {
 
   // Poll for unread messages and notifications every 30 seconds if user is logged in
   useEffect(() => {
-    // Only set up interval if user is loaded and not null
-    if (user && user.email) {
-      // Load unread count immediately on user change (e.g., after login)
-      // Wrap in try-catch to prevent reload loops
-      const loadCounts = async () => {
-        try {
-          await loadUnreadCount(user);
-          await loadUnreadNotificationCount(user);
-        } catch (error) {
-          console.log('Error loading counts (non-critical):', error);
-          // Don't throw - just log and continue
-        }
-      };
-      
-      loadCounts();
-
-      const interval = setInterval(() => {
-        // Use the current user from the state or re-fetch from cache within loadUnreadCount
-        loadCounts();
-      }, 30000); // 30 seconds
-      
-      return () => clearInterval(interval);
-    } else {
-      // Clear unread count if user logs out or is not present
+    // IMPORTANT: Don't run if loading or no user
+    if (loading || !user || !user.email) {
       setUnreadCount(0);
       setUnreadNotificationCount(0);
+      return;
     }
-  }, [user]); // Re-run when `user` state changes
+
+    // Only set up interval if user is loaded and not null
+    // Wrap in try-catch to prevent reload loops
+    const loadCounts = async () => {
+      try {
+        await loadUnreadCount(user);
+        await loadUnreadNotificationCount(user);
+      } catch (error) {
+        console.log('Error loading counts (non-critical):', error);
+        // Don't throw - just log and continue
+      }
+    };
+    
+    loadCounts();
+
+    const interval = setInterval(() => {
+      // Use the current user from the state or re-fetch from cache within loadUnreadCount
+      loadCounts();
+    }, 30000); // 30 seconds
+    
+    return () => clearInterval(interval);
+  }, [user, loading]); // Re-run when `user` or `loading` state changes
 
   const loadUserAndUnreadCount = async () => {
     try {

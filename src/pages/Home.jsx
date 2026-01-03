@@ -31,17 +31,31 @@ export default function Home() {
   });
 
   useEffect(() => {
-    try {
-      checkUser();
-      // Load draft from localStorage if exists
-      const savedDraft = localStorage.getItem('bookingDraft');
-      if (savedDraft) {
-        setBookingData(JSON.parse(savedDraft));
+    let isMounted = true;
+    
+    const initialize = async () => {
+      try {
+        if (isMounted) {
+          await checkUser();
+          // Load draft from localStorage if exists
+          const savedDraft = localStorage.getItem('bookingDraft');
+          if (savedDraft && isMounted) {
+            setBookingData(JSON.parse(savedDraft));
+          }
+        }
+      } catch (error) {
+        if (isMounted) {
+          handleError(error, { userMessage: 'Error loading home:', showToast: false });
+        }
       }
-    } catch (error) {
-      handleError(error, { userMessage: 'Error loading home:', showToast: false });
-    }
-  }, []);
+    };
+    
+    initialize();
+    
+    return () => {
+      isMounted = false;
+    };
+  }, []); // Empty array - only run once on mount
 
   const checkUser = async () => {
     try {
