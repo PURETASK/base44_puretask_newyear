@@ -55,20 +55,20 @@ export default function ClientBookingCard({ booking, onUpdate, showActions }) {
     const statusConfig = {
       created: { label: 'Created', variant: 'secondary' },
       payment_hold: { label: 'Payment Hold', variant: 'secondary' },
-      awaiting_cleaner_response: { label: 'Awaiting Response', variant: 'default' },
+      awaiting_cleaner_response: { label: 'Awaiting Response', variant: 'warningSoft' },
       accepted: { label: 'Accepted', variant: 'success' },
-      scheduled: { label: 'Scheduled', variant: 'success' },
-      on_the_way: { label: 'On The Way', variant: 'default' },
-      in_progress: { label: 'In Progress', variant: 'default' },
+      scheduled: { label: 'Scheduled', variant: 'system' },
+      on_the_way: { label: 'On The Way', variant: 'systemSoft' },
+      in_progress: { label: 'In Progress', variant: 'system' },
       completed: { label: 'Completed', variant: 'success' },
-      awaiting_client: { label: 'Awaiting Review', variant: 'secondary' },
+      awaiting_client: { label: 'Awaiting Review', variant: 'warningSoft' },
       approved: { label: 'Approved', variant: 'success' },
-      cancelled: { label: 'Cancelled', variant: 'destructive' },
-      disputed: { label: 'Disputed', variant: 'destructive' }
+      cancelled: { label: 'Cancelled', variant: 'error' },
+      disputed: { label: 'Disputed', variant: 'error' }
     };
 
     const config = statusConfig[status] || { label: status, variant: 'secondary' };
-    return <Badge variant={config.variant} className="font-fredoka">{config.label}</Badge>;
+    return <Badge variant={config.variant} className="font-heading">{config.label}</Badge>;
   };
 
   const getCleaningTypeLabel = (type) => {
@@ -94,8 +94,8 @@ export default function ClientBookingCard({ booking, onUpdate, showActions }) {
               <div className="flex items-start justify-between">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <Sparkles className="w-5 h-5 text-puretask-blue" />
-                    <h3 className="text-xl font-fredoka font-bold text-graphite">
+                    <Sparkles className="w-5 h-5 text-system" />
+                    <h3 className="text-xl font-heading font-bold text-graphite">
                       {getCleaningTypeLabel(booking.cleaning_type)}
                     </h3>
                   </div>
