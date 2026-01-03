@@ -45,9 +45,13 @@ export default function Home() {
 
   const checkUser = async () => {
     try {
-      const currentUser = await base44.auth.me();
+      const currentUser = await base44.auth.me().catch(() => null);
       setUser(currentUser);
     } catch (error) {
+      // User not logged in - this is fine for Home page
+      setUser(null);
+    }
+  };
       // User not logged in, that's fine for Home page
       setUser(null);
     }

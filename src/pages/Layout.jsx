@@ -156,11 +156,13 @@ export default function Layout({ children, currentPageName }) {
       // If no valid cache, try to fetch fresh user data
       const currentUser = await base44.auth.me().catch(error => {
         console.log('Auth check failed (likely not logged in):', error);
+        setLoading(false); // Stop loading immediately for guest users
         return null; // Return null if not authenticated
       });
       
       if (!currentUser) {
         // User not logged in - this is OK for public pages
+        console.log('No user logged in - allowing guest access');
         setLoading(false);
         return;
       }
