@@ -112,6 +112,8 @@ import CleanerAnalytics from "./CleanerAnalytics";
 
 import CleanerDashboard from "./CleanerDashboard";
 
+import CleanerJobDetail from "./CleanerJobDetail";
+
 import CleanerInsights from "./CleanerInsights";
 
 import CleanerJobWorkspace from "./CleanerJobWorkspace";
@@ -610,6 +612,7 @@ function PagesContent() {
                 <Route path="/CleanerAnalytics" element={<CleanerAnalytics />} />
                 
                 <Route path="/CleanerDashboard" element={<CleanerDashboard />} />
+                <Route path="/CleanerJobDetail/:jobId" element={<CleanerJobDetail />} />
                 
                 <Route path="/CleanerInsights" element={<CleanerInsights />} />
                 
