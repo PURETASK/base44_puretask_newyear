@@ -19,9 +19,9 @@ import {
   HelpCircle, ChevronDown, MessageSquare, Heart, Wallet, Gift, Shield, ArrowRight, Scale, Calendar, Bell
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import AIChatAssistant from './components/chat/AIChatAssistant';
-import NotificationDisplay from './components/notifications/NotificationDisplay';
-import AdminPageInfo from './components/admin/AdminPageInfo';
+import AIChatAssistant from '@/components/chat/AIChatAssistant';
+import NotificationDisplay from '@/components/notifications/NotificationDisplay';
+import AdminPageInfo from '@/components/admin/AdminPageInfo';
 import { analytics, setAnalyticsUser } from '@/components/analytics/AnalyticsService';
 
 export default function Layout({ children, currentPageName }) {
@@ -44,27 +44,51 @@ export default function Layout({ children, currentPageName }) {
 
   // Initial user and unread count load
   useEffect(() => {
-    try {
-      loadUserAndUnreadCount();
-    } catch (error) {
-      handleError(error, { userMessage: 'Error in initial load:', showToast: false });
-      setLoading(false);
-    }
+    let isMounted = true; // Prevent state updates if component unmounts
+    
+    const initializeApp = async () => {
+      try {
+        if (isMounted) {
+          await loadUserAndUnreadCount();
+        }
+      } catch (error) {
+        if (isMounted) {
+          handleError(error, { userMessage: 'Error in initial load:', showToast: false });
+          setLoading(false); // Always stop loading even on error
+        }
+      }
+    };
+    
+    initializeApp();
+    
+    return () => {
+      isMounted = false; // Cleanup flag
+    };
   }, []); // Empty dependency array means this runs once on mount
 
   // Poll for unread messages and notifications every 30 seconds if user is logged in
   useEffect(() => {
     // Only set up interval if user is loaded and not null
-    if (user) {
+    if (user && user.email) {
       // Load unread count immediately on user change (e.g., after login)
-      loadUnreadCount(user);
-      loadUnreadNotificationCount(user);
+      // Wrap in try-catch to prevent reload loops
+      const loadCounts = async () => {
+        try {
+          await loadUnreadCount(user);
+          await loadUnreadNotificationCount(user);
+        } catch (error) {
+          console.log('Error loading counts (non-critical):', error);
+          // Don't throw - just log and continue
+        }
+      };
+      
+      loadCounts();
 
       const interval = setInterval(() => {
         // Use the current user from the state or re-fetch from cache within loadUnreadCount
-        loadUnreadCount(user);
-        loadUnreadNotificationCount(user);
+        loadCounts();
       }, 30000); // 30 seconds
+      
       return () => clearInterval(interval);
     } else {
       // Clear unread count if user logs out or is not present
@@ -112,26 +136,35 @@ export default function Layout({ children, currentPageName }) {
           setUnreadCount(cachedUnread);
         }
 
-          setLoading(false);
-          // Still attempt to refresh data in background if cache was used, for freshness
-          // but don't wait for it.
-          base44.auth.me().then(freshUser => {
-            if (freshUser && freshUser.email === currentUser.email) { // Ensure it's the same user
-              setUser(freshUser);
-              cacheManager.set('currentUser', freshUser, 30 * 60 * 1000);
-              loadUnreadCount(freshUser); // Refresh unread count
-              setAnalyticsUser(freshUser); // Update analytics user with fresh data
-            }
-          }).catch(e => {
-            console.warn('Background refresh of user data failed, using cached data.', e);
-          });
+        setLoading(false);
+        // Still attempt to refresh data in background if cache was used, for freshness
+        // but don't wait for it.
+        base44.auth.me().then(freshUser => {
+          if (freshUser && freshUser.email === currentUser.email) { // Ensure it's the same user
+            setUser(freshUser);
+            cacheManager.set('currentUser', freshUser, 30 * 60 * 1000);
+            loadUnreadCount(freshUser); // Refresh unread count
+            setAnalyticsUser(freshUser); // Update analytics user with fresh data
+          }
+        }).catch(e => {
+          console.warn('Background refresh of user data failed, using cached data.', e);
+        });
 
-          return; // Exit as we've used cached data
-        }
+        return; // Exit as we've used cached data
       }
 
       // If no valid cache, try to fetch fresh user data
-      const currentUser = await base44.auth.me();
+      const currentUser = await base44.auth.me().catch(error => {
+        console.log('Auth check failed (likely not logged in):', error);
+        return null; // Return null if not authenticated
+      });
+      
+      if (!currentUser) {
+        // User not logged in - this is OK for public pages
+        setLoading(false);
+        return;
+      }
+      
       setUser(currentUser);
       cacheManager.set('currentUser', currentUser, 30 * 60 * 1000);
 
@@ -271,6 +304,9 @@ export default function Layout({ children, currentPageName }) {
       // If cache is stale or non-existent, fetch fresh data
       const threads = await base44.entities.ConversationThread.filter({
         participants: { $in: [userToUse.email] }
+      }).catch(error => {
+        console.log('Could not fetch conversation threads (database may not exist yet):', error);
+        return []; // Return empty array to prevent crash
       });
 
       let total = 0;
@@ -300,7 +336,7 @@ export default function Layout({ children, currentPageName }) {
       return;
     }
     const userToUse = currentUser || user;
-    if (!userToUse) {
+    if (!userToUse || !userToUse.email) {
       setUnreadNotificationCount(0);
       return;
     }
@@ -309,10 +345,14 @@ export default function Layout({ children, currentPageName }) {
       const notifications = await base44.entities.Notification.filter({
         recipient_email: userToUse.email,
         is_read: false
+      }).catch(error => {
+        console.log('Could not fetch notifications (database may not exist yet):', error);
+        return []; // Return empty array to prevent crash
       });
-      setUnreadNotificationCount(notifications.length);
+      setUnreadNotificationCount(notifications ? notifications.length : 0);
     } catch (error) {
       console.log('Could not load unread notification count:', error);
+      setUnreadNotificationCount(0); // Set to 0 on error instead of leaving undefined
     }
   };
 
@@ -381,6 +421,22 @@ export default function Layout({ children, currentPageName }) {
 
   return (
     <div className="min-h-screen bg-soft-cloud">
+      {/* Loading State - Prevent render until initial load completes */}
+      {loading && (
+        <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
+          <div className="text-center">
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+              className="w-16 h-16 mx-auto mb-4 brand-gradient rounded-2xl flex items-center justify-center"
+            >
+              <Sparkles className="w-8 h-8 text-white" />
+            </motion.div>
+            <p className="text-graphite font-fredoka text-lg">Loading PureTask...</p>
+          </div>
+        </div>
+      )}
+
       {/* NAVIGATION */}
       <motion.nav 
         initial={{ y: 0 }}
