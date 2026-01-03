@@ -52,10 +52,6 @@ export default function Home() {
       setUser(null);
     }
   };
-      // User not logged in, that's fine for Home page
-      setUser(null);
-    }
-  };
 
   const handleBooking = (e) => {
     e.preventDefault();
