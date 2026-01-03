@@ -24,6 +24,23 @@ import NotificationDisplay from '@/components/notifications/NotificationDisplay'
 import AdminPageInfo from '@/components/admin/AdminPageInfo';
 import { analytics, setAnalyticsUser } from '@/components/analytics/AnalyticsService';
 
+// Public pages that don't require authentication
+const PUBLIC_PAGES = [
+  'Home',
+  'RoleSelection',
+  'SignIn',
+  'Pricing',
+  'HowItWorks',
+  'HowItWorksCleaners',
+  'AboutUs',
+  'ContactUs',
+  'PrivacyPolicy',
+  'TermsOfService',
+  'BrowseCleaners',
+  'DesignSystemDemo',
+  'SetupGuide'
+];
+
 export default function Layout({ children, currentPageName }) {
   const navigate = useNavigate();
   const location = useLocation();
@@ -423,8 +440,8 @@ export default function Layout({ children, currentPageName }) {
 
   return (
     <div className="min-h-screen bg-soft-cloud">
-      {/* Loading State - Prevent render until initial load completes */}
-      {loading && (
+      {/* Loading State - Only show for protected pages, skip for public pages */}
+      {loading && !PUBLIC_PAGES.includes(currentPageName) && (
         <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
           <div className="text-center">
             <motion.div
