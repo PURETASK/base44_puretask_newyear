@@ -25,17 +25,17 @@ export default function CleanerJobDetail() {
   const navigate = useNavigate();
   
   const [user, setUser] = useState(null);
-  const [job, setJob] = useState<JobRecord | null>(null);
+  const [job, setJob] = useState(null); // JobRecord | null
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState(false);
   
   // GPS state
-  const [currentLocation, setCurrentLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [currentLocation, setCurrentLocation] = useState(null); // { lat: number; lng: number } | null
   const [locationError, setLocationError] = useState('');
   
   // Photo state
-  const [beforePhotos, setBeforePhotos] = useState<File[]>([]);
-  const [afterPhotos, setAfterPhotos] = useState<File[]>([]);
+  const [beforePhotos, setBeforePhotos] = useState([]); // File[]
+  const [afterPhotos, setAfterPhotos] = useState([]); // File[]
   const [uploading, setUploading] = useState(false);
   
   // Extra time state
