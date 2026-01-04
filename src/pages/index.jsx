@@ -118,6 +118,8 @@ import CleanerInsights from "./CleanerInsights";
 
 import CleanerJobWorkspace from "./CleanerJobWorkspace";
 
+import NotificationTestPage from "./NotificationTestPage";
+
 import CleanerOnboarding from "./CleanerOnboarding";
 
 import CleanerPayouts from "./CleanerPayouts";

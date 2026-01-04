@@ -3,7 +3,7 @@
 
 import { base44 } from '@/api/base44Client';
 import { NotificationService } from '@/components/notifications/NotificationService';
-import { EmailNotificationService } from '@/components/notifications/EmailNotificationService';
+import EmailService from '@/components/notifications/EmailNotificationService';
 import type { JobRecord } from '@/types/cleanerJobTypes';
 import { jobEventBus, type JobEvent } from './jobEvents';
 
@@ -183,7 +183,7 @@ export class ClientNotificationService {
     });
 
     // Email notification
-    await EmailNotificationService.send('email.client.booking_confirmation', {
+    await EmailService.sendNotification('email.client.booking_confirmation', {
       recipient_email: job.client_id,
       first_name: client?.first_name || 'there',
       cleaner_name: cleaner?.name || 'Your cleaner',
@@ -232,7 +232,7 @@ export class ClientNotificationService {
     });
 
     // Email notification
-    await EmailNotificationService.send('email.client.cleaner_on_way', {
+    await EmailService.sendNotification('email.client.cleaner_on_way', {
       recipient_email: job.client_id,
       first_name: client?.first_name || 'there',
       cleaner_name: cleaner?.name || 'Your cleaner'
@@ -381,7 +381,7 @@ export class ClientNotificationService {
     });
 
     // Email notification (URGENT)
-    await EmailNotificationService.send('email.client.extra_time_requested', {
+    await EmailService.sendNotification('email.client.extra_time_requested', {
       recipient_email: job.client_id,
       first_name: client?.first_name || 'there',
       cleaner_name: cleaner?.name || 'Your cleaner',
@@ -434,7 +434,7 @@ export class ClientNotificationService {
     });
 
     // Email notification
-    await EmailNotificationService.send('email.client.cleaning_completed', {
+    await EmailService.sendNotification('email.client.cleaning_completed', {
       recipient_email: job.client_id,
       first_name: client?.first_name || 'there',
       cleaner_name: cleaner?.name || 'Your cleaner',
