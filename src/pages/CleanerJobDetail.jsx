@@ -277,7 +277,7 @@ export default function CleanerJobDetail() {
   // RENDERING HELPERS
   
   const getStateBadge = () => {
-    const stateConfig: Record<string, { label: string; variant: any; icon: any }> = {
+    const stateConfig = {
       ASSIGNED: { label: 'Assigned', variant: 'system', icon: CheckCircle },
       EN_ROUTE: { label: 'En Route', variant: 'system', icon: Navigation },
       ARRIVED: { label: 'Arrived', variant: 'system', icon: MapPin },
