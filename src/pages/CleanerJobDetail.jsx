@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { cleanerJobsService } from '@/services/cleanerJobsService';
-import type { JobRecord } from '@/types/cleanerJobTypes';
+// import type { JobRecord } from '@/types/cleanerJobTypes'; // Removed - TypeScript syntax in JSX file
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
