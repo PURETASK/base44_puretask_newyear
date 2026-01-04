@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Loader2, Bell, MessageSquare, Smartphone, Mail, Zap, CheckCircle2, XCircle, AlertTriangle } from 'lucide-react';
 import { jobEventBus } from '@/services/jobEvents';
@@ -330,7 +330,7 @@ export default function NotificationTestPage() {
         {/* Left Column: System Status & Test Data */}
         <div className="lg:col-span-1 space-y-6">
           {/* System Status */}
-          <Card className="p-6">
+          <div className="rounded-xl border bg-card text-card-foreground shadow p-6">
             <div className="flex items-center mb-4">
               <Zap className="h-5 w-5 text-system mr-2" />
               <h2 className="text-lg font-heading font-bold">System Status</h2>
@@ -357,9 +357,9 @@ export default function NotificationTestPage() {
                 {systemStatus.push ? (
                   <Badge variant="success" className="text-xs">✅ Enabled</Badge>
                 ) : (
-                  <Button onClick={requestPushPermission} size="sm" variant="outline" className="h-6 text-xs">
+                  <button onClick={requestPushPermission} className="h-6 text-xs rounded-md px-3 inline-flex items-center justify-center transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground">
                     Enable
-                  </Button>
+                  </button>
                 )}
               </div>
               <div className="flex items-center justify-between">
@@ -371,10 +371,10 @@ export default function NotificationTestPage() {
                 </Badge>
               </div>
             </div>
-          </Card>
+          </div>
 
           {/* Test Data */}
-          <Card className="p-6">
+          <div className="rounded-xl border bg-card text-card-foreground shadow p-6">
             <div className="flex items-center mb-4">
               <Bell className="h-5 w-5 text-system mr-2" />
               <h2 className="text-lg font-heading font-bold">Test Data</h2>
@@ -397,126 +397,114 @@ export default function NotificationTestPage() {
                 <p className="text-gray-600">{testJob?.address}</p>
               </div>
             </div>
-          </Card>
+          </div>
 
           {/* Quick Actions */}
-          <Card className="p-6">
+          <div className="rounded-xl border bg-card text-card-foreground shadow p-6">
             <h2 className="text-lg font-heading font-bold mb-4">Quick Actions</h2>
             <div className="space-y-2">
-              <Button
+              <button
                 onClick={testAllNotifications}
-                className="w-full bg-system hover:bg-system-dark text-white font-heading"
-                size="sm"
+                className="w-full bg-system hover:bg-system-dark text-white font-heading h-8 rounded-md px-3 text-xs inline-flex items-center justify-center transition-colors"
               >
                 🎬 Run Full Test
-              </Button>
-              <Button
+              </button>
+              <button
                 onClick={clearLogs}
-                variant="outline"
-                className="w-full font-heading"
-                size="sm"
+                className="w-full font-heading h-8 rounded-md px-3 text-xs inline-flex items-center justify-center transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
               >
                 🗑️ Clear Logs
-              </Button>
+              </button>
             </div>
-          </Card>
+          </div>
         </div>
 
         {/* Middle Column: Test Buttons */}
         <div className="lg:col-span-1 space-y-4">
-          <Card className="p-6">
+          <div className="rounded-xl border bg-card text-card-foreground shadow p-6">
             <h2 className="text-xl font-heading font-bold mb-4">Client Notifications</h2>
             <div className="space-y-3">
-              <Button
+              <button
                 onClick={testJobAccepted}
-                className="w-full justify-start font-body"
-                variant="outline"
+                className="w-full justify-start font-body h-9 px-4 py-2 rounded-md inline-flex items-center transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
               >
                 <CheckCircle2 className="mr-2 h-4 w-4 text-success" />
                 Job Accepted
-              </Button>
+              </button>
               
-              <Button
+              <button
                 onClick={testCleanerEnRoute}
-                className="w-full justify-start font-body"
-                variant="outline"
+                className="w-full justify-start font-body h-9 px-4 py-2 rounded-md inline-flex items-center transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
               >
                 🚗 Cleaner En Route
-              </Button>
+              </button>
               
-              <Button
+              <button
                 onClick={testCleanerArrived}
-                className="w-full justify-start font-body"
-                variant="outline"
+                className="w-full justify-start font-body h-9 px-4 py-2 rounded-md inline-flex items-center transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
               >
                 📍 Cleaner Arrived
-              </Button>
+              </button>
               
-              <Button
+              <button
                 onClick={testJobStarted}
-                className="w-full justify-start font-body"
-                variant="outline"
+                className="w-full justify-start font-body h-9 px-4 py-2 rounded-md inline-flex items-center transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
               >
                 🧹 Job Started
-              </Button>
+              </button>
               
-              <Button
+              <button
                 onClick={testPhotosUploaded}
-                className="w-full justify-start font-body"
-                variant="outline"
+                className="w-full justify-start font-body h-9 px-4 py-2 rounded-md inline-flex items-center transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
               >
                 📸 Photos Uploaded
-              </Button>
+              </button>
               
-              <Button
+              <button
                 onClick={testExtraTimeRequested}
-                className="w-full justify-start font-body bg-amber-50 border-amber-300 hover:bg-amber-100"
-                variant="outline"
+                className="w-full justify-start font-body h-9 px-4 py-2 rounded-md inline-flex items-center transition-colors bg-amber-50 border border-amber-300 hover:bg-amber-100"
               >
                 <AlertTriangle className="mr-2 h-4 w-4 text-amber-600" />
                 Extra Time (URGENT)
-              </Button>
+              </button>
               
-              <Button
+              <button
                 onClick={testJobCompleted}
-                className="w-full justify-start font-body"
-                variant="outline"
+                className="w-full justify-start font-body h-9 px-4 py-2 rounded-md inline-flex items-center transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground"
               >
                 <CheckCircle2 className="mr-2 h-4 w-4 text-success" />
                 Job Completed
-              </Button>
+              </button>
             </div>
-          </Card>
+          </div>
 
-          <Card className="p-6">
+          <div className="rounded-xl border bg-card text-card-foreground shadow p-6">
             <h2 className="text-xl font-heading font-bold mb-4">Direct Tests</h2>
             <div className="space-y-3">
-              <Button
+              <button
                 onClick={testSMSDirect}
-                className="w-full justify-start font-body"
-                variant="outline"
+                className="w-full justify-start font-body h-9 px-4 py-2 rounded-md inline-flex items-center transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50"
                 disabled={!systemStatus.sms}
               >
                 <MessageSquare className="mr-2 h-4 w-4 text-system" />
                 Send Test SMS
-              </Button>
+              </button>
               
-              <Button
+              <button
                 onClick={testPushDirect}
-                className="w-full justify-start font-body"
-                variant="outline"
+                className="w-full justify-start font-body h-9 px-4 py-2 rounded-md inline-flex items-center transition-colors border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground disabled:pointer-events-none disabled:opacity-50"
                 disabled={!systemStatus.push}
               >
                 <Smartphone className="mr-2 h-4 w-4 text-system" />
                 Send Test Push
-              </Button>
+              </button>
             </div>
-          </Card>
+          </div>
         </div>
 
         {/* Right Column: Notification Log */}
         <div className="lg:col-span-1">
-          <Card className="p-6">
+          <div className="rounded-xl border bg-card text-card-foreground shadow p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-heading font-bold">Notification Log</h2>
               <Badge variant="secondary" className="text-xs">
@@ -559,12 +547,12 @@ export default function NotificationTestPage() {
                 ))
               )}
             </div>
-          </Card>
+          </div>
         </div>
       </div>
 
       {/* Instructions */}
-      <Card className="mt-6 p-6 bg-blue-50 border-blue-200">
+      <div className="rounded-xl border bg-blue-50 border-blue-200 shadow mt-6 p-6">
         <h3 className="text-lg font-heading font-bold text-blue-900 mb-2">
           📝 Testing Instructions
         </h3>
@@ -578,7 +566,7 @@ export default function NotificationTestPage() {
           <li>If SMS/Push enabled, check your phone/browser for those too</li>
           <li>Extra Time Request is URGENT - should always notify even if preferences disabled</li>
         </ol>
-      </Card>
+      </div>
     </div>
   );
 }

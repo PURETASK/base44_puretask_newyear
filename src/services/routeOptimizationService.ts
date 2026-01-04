@@ -1,7 +1,16 @@
 // Route Optimization Service
 // Calculates optimal routes and provides travel insights
 
-import type { JobRecord } from '@/types/cleanerJobTypes';
+// Using inline type definition to avoid import issues
+interface JobRecord {
+  id: string;
+  latitude: number;
+  longitude: number;
+  address?: string;
+  start_time?: string;
+  estimated_hours?: number;
+  duration_hours?: number;
+}
 
 export interface RouteOptimization {
   totalDistance: number; // miles
@@ -118,7 +127,7 @@ export class RouteOptimizationService {
       
       totalDistance += nearestDistance;
       totalDuration += this.estimateTravelTime(nearestDistance);
-      totalDuration += nextJob.duration_hours * 60; // Add job duration
+      totalDuration += (nextJob.duration_hours || nextJob.estimated_hours || 0) * 60; // Add job duration
       
       currentLat = nextJob.latitude;
       currentLng = nextJob.longitude;
@@ -226,7 +235,13 @@ export class RouteOptimizationService {
   }> {
     if (jobs.length < 2) return [];
     
-    const directions = [];
+      const directions: Array<{
+        from: string;
+        to: string;
+        distance: number;
+        duration: number;
+        instruction: string;
+      }> = [];
     
     for (let i = 0; i < jobs.length - 1; i++) {
       const current = jobs[i];
@@ -242,11 +257,11 @@ export class RouteOptimizationService {
       const duration = this.estimateTravelTime(distance);
       
       directions.push({
-        from: current.address,
-        to: next.address,
+        from: current.address || 'Unknown',
+        to: next.address || 'Unknown',
         distance: parseFloat(distance.toFixed(1)),
         duration,
-        instruction: `Drive ${distance.toFixed(1)} miles (${duration} min) from ${current.address} to ${next.address}`
+        instruction: `Drive ${distance.toFixed(1)} miles (${duration} min) from ${current.address || 'location'} to ${next.address || 'next location'}`
       });
     }
     
@@ -275,7 +290,7 @@ export class RouteOptimizationService {
     const routeScore = Math.max(0, 100 - ((actualDistance - optimized.totalDistance) / optimized.totalDistance) * 100);
     
     // Time utilization (job time vs travel time)
-    const jobTime = jobs.reduce((sum, j) => sum + j.duration_hours * 60, 0);
+    const jobTime = jobs.reduce((sum, j) => sum + ((j.duration_hours || j.estimated_hours || 0) * 60), 0);
     const timeScore = (jobTime / (jobTime + optimized.totalDuration)) * 100;
     
     // Area concentration (jobs within same area)
