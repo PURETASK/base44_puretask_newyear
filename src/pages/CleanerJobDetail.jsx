@@ -18,6 +18,7 @@ import {
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
+import { FloatingAIAssistant } from '@/components/ai/CleanerAIChatAssistant';
 
 export default function CleanerJobDetail() {
   const { jobId } = useParams();
@@ -560,6 +561,19 @@ export default function CleanerJobDetail() {
           </Alert>
         )}
       </div>
+      
+      {/* Floating AI Assistant */}
+      <FloatingAIAssistant
+        currentJob={job}
+        cleanerId={user?.id || ''}
+        cleanerEmail={user?.email || ''}
+        stats={{
+          totalJobs: 0, // TODO: fetch from cleaner profile
+          reliabilityScore: 0,
+          avgRating: 0,
+          totalEarnings: 0
+        }}
+      />
     </div>
   );
 }
