@@ -3,8 +3,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Loader2, Bell, MessageSquare, Smartphone, Mail, Zap, CheckCircle2, XCircle, AlertTriangle } from 'lucide-react';
 import { jobEventBus } from '@/services/jobEvents';
