@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { cleanerJobsService } from '@/services/cleanerJobsService';
-// import type { JobRecord } from '@/types/cleanerJobTypes'; // Removed - TypeScript syntax in JSX file
+import type { JobRecord } from '@/types/cleanerJobTypes';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -21,30 +21,30 @@ import { format } from 'date-fns';
 import { FloatingAIAssistant } from '@/components/ai/CleanerAIChatAssistant';
 
 export default function CleanerJobDetail() {
-  const { jobId } = useParams();
+  const { jobId } = useParams<{ jobId: string }>();
   const navigate = useNavigate();
   
-  const [user, setUser] = useState(null);
-  const [job, setJob] = useState(null); // JobRecord | null
-  const [loading, setLoading] = useState(true);
-  const [actionLoading, setActionLoading] = useState(false);
+  const [user, setUser] = useState<any>(null);
+  const [job, setJob] = useState<JobRecord | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [actionLoading, setActionLoading] = useState<boolean>(false);
   
   // GPS state
-  const [currentLocation, setCurrentLocation] = useState(null); // { lat: number; lng: number } | null
-  const [locationError, setLocationError] = useState('');
+  const [currentLocation, setCurrentLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [locationError, setLocationError] = useState<string>('');
   
   // Photo state
-  const [beforePhotos, setBeforePhotos] = useState([]); // File[]
-  const [afterPhotos, setAfterPhotos] = useState([]); // File[]
-  const [uploading, setUploading] = useState(false);
+  const [beforePhotos, setBeforePhotos] = useState<File[]>([]);
+  const [afterPhotos, setAfterPhotos] = useState<File[]>([]);
+  const [uploading, setUploading] = useState<boolean>(false);
   
   // Extra time state
-  const [showExtraTimeForm, setShowExtraTimeForm] = useState(false);
-  const [extraMinutes, setExtraMinutes] = useState(30);
-  const [extraTimeReason, setExtraTimeReason] = useState('');
+  const [showExtraTimeForm, setShowExtraTimeForm] = useState<boolean>(false);
+  const [extraMinutes, setExtraMinutes] = useState<number>(30);
+  const [extraTimeReason, setExtraTimeReason] = useState<string>('');
   
   // Timer state
-  const [elapsedTime, setElapsedTime] = useState(0);
+  const [elapsedTime, setElapsedTime] = useState<number>(0);
   
   useEffect(() => {
     loadJob();
@@ -55,7 +55,7 @@ export default function CleanerJobDetail() {
   useEffect(() => {
     if (job?.state === 'IN_PROGRESS' && job.start_at) {
       const interval = setInterval(() => {
-        const start = new Date(job.start_at);
+        const start = new Date(job.start_at!);
         const now = new Date();
         const diffMs = now.getTime() - start.getTime();
         const diffMinutes = Math.floor(diffMs / (1000 * 60));
@@ -72,7 +72,7 @@ export default function CleanerJobDetail() {
       const currentUser = await base44.auth.me();
       setUser(currentUser);
       
-      const jobData = await cleanerJobsService.getJob(jobId, currentUser.email);
+      const jobData = await cleanerJobsService.getJob(jobId!, currentUser.email);
       if (!jobData) {
         toast.error('Job not found or you are not assigned to this job');
         navigate('/CleanerDashboard');
@@ -80,7 +80,7 @@ export default function CleanerJobDetail() {
       }
       
       setJob(jobData);
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message || 'Failed to load job');
       navigate('/CleanerDashboard');
     } finally {
@@ -118,14 +118,14 @@ export default function CleanerJobDetail() {
     try {
       setActionLoading(true);
       const updated = await cleanerJobsService.markEnRoute(
-        jobId,
-        user.email,
-        user.id,
+        jobId!,
+        user!.email,
+        user!.id,
         currentLocation
       );
       setJob(updated);
       toast.success('✅ Marked as en route - Client notified!');
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message || 'Failed to mark en route');
     } finally {
       setActionLoading(false);
@@ -141,14 +141,14 @@ export default function CleanerJobDetail() {
     try {
       setActionLoading(true);
       const updated = await cleanerJobsService.markArrived(
-        jobId,
-        user.email,
-        user.id,
+        jobId!,
+        user!.email,
+        user!.id,
         currentLocation
       );
       setJob(updated);
       toast.success('✅ Checked in successfully!');
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message || 'GPS check-in failed: ' + error.message);
     } finally {
       setActionLoading(false);
@@ -164,50 +164,50 @@ export default function CleanerJobDetail() {
     try {
       setActionLoading(true);
       const updated = await cleanerJobsService.startJob(
-        jobId,
-        user.email,
-        user.id,
+        jobId!,
+        user!.email,
+        user!.id,
         currentLocation
       );
       setJob(updated);
       toast.success('✅ Job started - Timer running!');
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message || 'Failed to start job');
     } finally {
       setActionLoading(false);
     }
   };
   
-  const handleUploadBeforePhoto = async (file) => {
+  const handleUploadBeforePhoto = async (file: File) => {
     try {
       setUploading(true);
       const result = await cleanerJobsService.uploadBeforePhoto(
-        jobId,
-        user.email,
-        user.id,
+        jobId!,
+        user!.email,
+        user!.id,
         file
       );
-      setJob({ ...job, before_photos_count: result.count });
+      setJob({ ...job!, before_photos_count: result.count });
       toast.success(`Before photo ${result.count}/3 uploaded`);
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message || 'Failed to upload photo');
     } finally {
       setUploading(false);
     }
   };
   
-  const handleUploadAfterPhoto = async (file) => {
+  const handleUploadAfterPhoto = async (file: File) => {
     try {
       setUploading(true);
       const result = await cleanerJobsService.uploadAfterPhoto(
-        jobId,
-        user.email,
-        user.id,
+        jobId!,
+        user!.email,
+        user!.id,
         file
       );
-      setJob({ ...job, after_photos_count: result.count });
+      setJob({ ...job!, after_photos_count: result.count });
       toast.success(`After photo ${result.count}/3 uploaded`);
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message || 'Failed to upload photo');
     } finally {
       setUploading(false);
@@ -223,9 +223,9 @@ export default function CleanerJobDetail() {
     try {
       setActionLoading(true);
       const updated = await cleanerJobsService.requestExtraTime(
-        jobId,
-        user.email,
-        user.id,
+        jobId!,
+        user!.email,
+        user!.id,
         extraMinutes,
         extraTimeReason
       );
@@ -233,7 +233,7 @@ export default function CleanerJobDetail() {
       toast.success('⏱️ Extra time request sent to client');
       setShowExtraTimeForm(false);
       setExtraTimeReason('');
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message || 'Failed to request extra time');
     } finally {
       setActionLoading(false);
@@ -259,15 +259,15 @@ export default function CleanerJobDetail() {
     try {
       setActionLoading(true);
       const updated = await cleanerJobsService.completeJob(
-        jobId,
-        user.email,
-        user.id,
+        jobId!,
+        user!.email,
+        user!.id,
         currentLocation
       );
       setJob(updated);
       toast.success('🎉 Job completed! Waiting for client approval.');
       navigate('/CleanerDashboard');
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message || 'Failed to complete job');
     } finally {
       setActionLoading(false);
@@ -277,7 +277,7 @@ export default function CleanerJobDetail() {
   // RENDERING HELPERS
   
   const getStateBadge = () => {
-    const stateConfig = {
+    const stateConfig: Record<string, { label: string; variant: any; icon: any }> = {
       ASSIGNED: { label: 'Assigned', variant: 'system', icon: CheckCircle },
       EN_ROUTE: { label: 'En Route', variant: 'system', icon: Navigation },
       ARRIVED: { label: 'Arrived', variant: 'system', icon: MapPin },
@@ -297,7 +297,7 @@ export default function CleanerJobDetail() {
     );
   };
   
-  const formatTime = (minutes) => {
+  const formatTime = (minutes: number) => {
     const hrs = Math.floor(minutes / 60);
     const mins = minutes % 60;
     return `${hrs}h ${mins}m`;

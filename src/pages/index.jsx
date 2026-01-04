@@ -112,7 +112,7 @@ import CleanerAnalytics from "./CleanerAnalytics";
 
 import CleanerDashboard from "./CleanerDashboard";
 
-import CleanerJobDetail from "./CleanerJobDetail";
+import CleanerJobDetail from "./CleanerJobDetail.tsx";
 
 import CleanerInsights from "./CleanerInsights";
 
