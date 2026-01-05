@@ -14,7 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Calendar, Clock, MapPin, User, DollarSign, Home, Package,
   Star, Camera, MessageSquare, AlertTriangle, FileText, Shield,
-  Sparkles, Info, CheckCircle, XCircle, TrendingUp
+  Sparkles, Info, TrendingUp
 } from 'lucide-react';
 import { format } from 'date-fns';
 import { convertTo12Hour } from '../utils/timeUtils';

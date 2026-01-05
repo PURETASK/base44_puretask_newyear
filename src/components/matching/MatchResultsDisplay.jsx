@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Sparkles, Award, MapPin, CheckCircle } from 'lucide-react';
+import { Sparkles, Award, CheckCircle } from 'lucide-react';
 
 /**
  * Display SmartMatch results with primary + fallback cleaners

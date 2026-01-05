@@ -4,7 +4,7 @@ import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { MapPin, Clock, CheckCircle, AlertTriangle, Loader2, AlertCircle } from 'lucide-react';
+import { MapPin, CheckCircle, AlertTriangle, Loader2, AlertCircle } from 'lucide-react';
 import { validateGPSLocation, getCurrentPosition, formatDistance, getValidationStatusColor } from './GPSValidator';
 import { analytics } from '../analytics/AnalyticsService';
 import toast from 'react-hot-toast'; // Assuming react-hot-toast is installed and configured

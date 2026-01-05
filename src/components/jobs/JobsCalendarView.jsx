@@ -1,8 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Calendar, MapPin, Clock, DollarSign, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Clock, DollarSign, ChevronLeft, ChevronRight } from 'lucide-react';
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, parseISO, startOfWeek, endOfWeek, addMonths, subMonths } from 'date-fns';
 
 export default function JobsCalendarView({ jobs, onSelectJob, myJobIds = [] }) {

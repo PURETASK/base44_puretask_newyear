@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
   Briefcase, Clock, Shield, Zap, CheckCircle, Star,
-  Calendar, TrendingUp, Coffee, Laptop
+  Calendar, Coffee, Laptop
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

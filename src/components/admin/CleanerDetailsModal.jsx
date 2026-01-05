@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
 import { User } from '@/api/entities';
 import { CleanerProfile } from '@/api/entities';
-import { Shield, MapPin, Star, Award, CheckCircle, FileText } from 'lucide-react';
+import { Shield, MapPin, CheckCircle, FileText } from 'lucide-react';
 import ReliabilityMeter from '../reliability/ReliabilityMeter';
 
 export default function CleanerDetailsModal({ cleaner, profile, onClose, onUpdate }) {

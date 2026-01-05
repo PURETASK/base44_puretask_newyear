@@ -6,11 +6,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
-  MapPin, Calendar, Clock, User, DollarSign, Sparkles,
-  MessageSquare, CalendarRange, X, CheckCircle2, AlertCircle
+  MapPin, Calendar, Clock, User, DollarSign, Sparkles, CalendarRange, X, CheckCircle2
 } from 'lucide-react';
 import { format } from 'date-fns';
-import CancelBookingDialog from './CancelBookingDialog';
 import MessageButton from '../messaging/MessageButton';
 import EscrowStatusBadge from './EscrowStatusBadge';
 import FallbackCleanerStatus from './FallbackCleanerStatus';

@@ -3,7 +3,7 @@ import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Upload, Video, Loader2, CheckCircle, X, Play } from 'lucide-react';
+import { Upload, Video, Loader2, CheckCircle, X } from 'lucide-react';
 
 export default function VideoIntroUploader({ currentVideoUrl, onVideoUploaded }) {
   const [uploading, setUploading] = useState(false);

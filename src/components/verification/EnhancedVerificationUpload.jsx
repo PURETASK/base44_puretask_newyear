@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { 
-  Upload, CheckCircle, AlertCircle, Image as ImageIcon, 
-  FileText, Camera, Loader2, Eye, X, RefreshCw
+  Upload, CheckCircle, AlertCircle, 
+  FileText, Camera, Loader2, Eye, X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';

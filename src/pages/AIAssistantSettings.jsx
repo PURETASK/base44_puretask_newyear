@@ -6,16 +6,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
 import { Loader2, Save, Sparkles, ArrowLeft, MessageSquare, Calendar, Users, Bell } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { toast } from 'sonner';
 import { analytics } from '../components/analytics/AnalyticsService';
-import AIAssistantOnboardingWizard from '../components/ai/AIAssistantOnboardingWizard';
 import MessageSettingCard from '../components/ai/MessageSettingCard';
 import ReliabilityImpactWidget from '../components/ai/ReliabilityImpactWidget';
-import AISettingTooltip from '../components/ai/AISettingTooltip';
 import AISchedulingSettings from '../components/ai/AISchedulingSettings';
 import SmartMatchingSettings from '../components/ai/SmartMatchingSettings';
 

@@ -5,7 +5,7 @@ import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Sparkles, LogIn, Loader2, ArrowLeft, UserPlus, Zap } from 'lucide-react';
+import { Sparkles, LogIn, Loader2, ArrowLeft, UserPlus } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function SignIn() {

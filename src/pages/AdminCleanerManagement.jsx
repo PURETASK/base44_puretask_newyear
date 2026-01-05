@@ -13,13 +13,12 @@ import { AdminPermissions } from '@/components/admin/AdminPermissions';
 import { AdminAuditLogger } from '@/components/admin/AdminAuditLogger';
 import RiskScoreDisplay from '@/components/risk/RiskScoreDisplay';
 import {
-  Users, Star, Loader2, Ban, CheckCircle, TrendingUp, Mail, Calendar,
-  DollarSign, AlertTriangle, Filter, X, Grid, List, ChevronDown,
+  Users, Star, Loader2, Ban, CheckCircle, Filter, X, Grid, List,
   Edit, MessageSquare, Award, Clock, MapPin, Briefcase, Activity,
-  CheckSquare, Download, BarChart3, TrendingDown, Shield, BookmarkCheck, ChevronRight, Hash
+  CheckSquare, Download, BarChart3, Shield, BookmarkCheck, ChevronRight, Hash
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { getTierBadgeColor, getTierCardClasses, getTierChartColor, getTierSolidColor } from '../components/utils/tierColors';
 
 export default function AdminCleanerManagement() {

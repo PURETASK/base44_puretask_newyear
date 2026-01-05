@@ -4,7 +4,7 @@ import { createPageUrl } from '@/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Star, MapPin, Award, Sparkles, Clock, CheckCircle } from 'lucide-react';
+import { Star, MapPin, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getTierBadgeColor, getTierCardClasses, getTierLightColor, getTierSolidColor, getTierTextColor } from '../utils/tierColors';
 

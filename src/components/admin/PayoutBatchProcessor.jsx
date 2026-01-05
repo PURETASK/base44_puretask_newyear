@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { DollarSign, Users, CheckCircle, AlertCircle, Loader2, Calendar } from 'lucide-react';
+import { DollarSign, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 
 export default function PayoutBatchProcessor() {
   const [pendingEarnings, setPendingEarnings] = useState([]);

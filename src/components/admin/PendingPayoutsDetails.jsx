@@ -11,7 +11,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { DollarSign, Loader2, ExternalLink, Calendar } from 'lucide-react';
+import { DollarSign, Loader2, ExternalLink } from 'lucide-react';
 import { format } from 'date-fns';
 import { createPageUrl } from '@/utils';
 import { useNavigate } from 'react-router-dom';

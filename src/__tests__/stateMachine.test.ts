@@ -212,7 +212,7 @@ if (passRate === '100.0') {
 }
 
 // Export test results
-export const stateM achineTestResults = {
+export const stateMachineTestResults = {
   tests,
   passedTests,
   totalTests,

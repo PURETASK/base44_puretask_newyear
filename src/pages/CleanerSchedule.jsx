@@ -3,15 +3,13 @@ import { handleError } from '@/lib/errorHandler';
 import { useNavigate } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { createPageUrl } from '@/utils';
-import AIBadge from '../components/ai/AIBadge';
 import AITooltip from '../components/ai/AITooltip';
 import { analytics } from '../components/analytics/AnalyticsService';
 import BookingRequestExplainer from '../components/booking/BookingRequestExplainer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Calendar as CalendarIcon, MapPin, Clock, DollarSign, 
+import { MapPin, Clock, 
   ChevronLeft, ChevronRight, CheckCircle, Circle, Loader2, ArrowRight
 } from 'lucide-react';
 import { format, addDays, startOfWeek, endOfWeek, startOfMonth, endOfMonth, isSameDay, addMonths, subMonths } from 'date-fns';

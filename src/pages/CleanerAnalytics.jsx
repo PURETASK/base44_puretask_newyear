@@ -4,15 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import {
-  TrendingUp, DollarSign, Star, Calendar, Clock, Camera, Target,
-  Award, CheckCircle, Users, BarChart3, Loader2
+import { DollarSign, Star, Clock, Camera, Target, CheckCircle, BarChart3, Loader2
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import {
-  LineChart, Line, BarChart, Bar, PieChart, Pie, Cell,
+  LineChart, Line, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 

@@ -3,12 +3,12 @@ import { handleError } from '@/lib/errorHandler';
 import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { AdminPermissions } from '@/components/admin/AdminPermissions';
-import { HelpCircle, Loader2, CheckCircle, Clock, AlertCircle } from 'lucide-react';
+import { HelpCircle, Loader2, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function AdminSupportTickets() {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { handleError } from '@/lib/errorHandler';
 import { base44 } from '@/api/base44Client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { TrendingUp, Calendar, XCircle, AlertTriangle, DollarSign, CheckCircle, Users } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { TrendingUp, Calendar, XCircle, AlertTriangle, DollarSign, CheckCircle } from 'lucide-react';
 
 export default function AdminSimpleDashboard() {
   const [stats, setStats] = useState({

@@ -4,11 +4,10 @@ import { createPageUrl } from '@/utils';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import {
-  CheckCircle, Award, Shield, Star, Zap, Clock, Camera, Info,
-  TrendingUp, DollarSign, Users, Sparkles, Target
+  CheckCircle, Shield, Zap, Info, Sparkles, Target
 } from 'lucide-react';
 
 export default function Pricing() {

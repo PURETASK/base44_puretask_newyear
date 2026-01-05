@@ -7,15 +7,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
-  Calendar, Heart, RefreshCw, Search, Wallet, Users, Gift,
-  History, MessageSquare, Star, TrendingUp, Sparkles, ChevronRight,
-  Loader2, Clock, CheckCircle, Home, Droplets, Wind, Package,
+  Calendar, Heart, RefreshCw, Search,
+  History, MessageSquare, Star, Sparkles,
+  Loader2, Clock, CheckCircle, Droplets, Wind, Package,
   MapPin, ArrowRight, Zap, HelpCircle, Settings, Plus, Repeat,
   Timer, User
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { format, isPast, isFuture, parseISO, differenceInHours, differenceInMinutes, differenceInDays } from 'date-fns';
-import LiveBookingStatus from '@/components/booking/LiveBookingStatus';
+import { format, parseISO, differenceInHours, differenceInMinutes, differenceInDays } from 'date-fns';
 import CreditWallet from '@/components/credits/CreditWallet';
 import { convertTo12Hour } from '@/components/utils/timeUtils';
 import FAQChatbot from '@/components/chat/FAQChatbot';

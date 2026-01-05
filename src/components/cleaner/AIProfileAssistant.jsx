@@ -3,10 +3,9 @@ import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Alert, AlertDescription } from '@/components/ui/alert';
 import { 
   Sparkles, Loader2, CheckCircle, Lightbulb, MapPin, 
-  Award, Calendar, Package, FileText, TrendingUp, DollarSign
+  Award, Calendar, Package, FileText, DollarSign
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';

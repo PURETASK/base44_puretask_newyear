@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, CheckCircle, Clock, AlertTriangle, XCircle, Info } from 'lucide-react';
+import { MapPin, CheckCircle, AlertTriangle, XCircle, Info } from 'lucide-react';
 
 /**
  * Design System Demo Page

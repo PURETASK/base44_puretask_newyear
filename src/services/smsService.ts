@@ -233,8 +233,9 @@ export class SMSService {
 
       return result;
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
       console.error('[SMSService] Failed to get delivery status:', error);
-      return { status: 'unknown', error: error.message };
+      return { status: 'unknown', error: errorMessage };
     }
   }
 }
@@ -265,7 +266,7 @@ export const ClientSMSTemplates = {
   extraTimeRequested: (cleanerName: string, minutes: number, cost: string) =>
     `⏰ ${cleanerName} requests ${minutes} extra minutes (+$${cost}). Approve in app: https://puretask.com/approve -PureTask`,
 
-  jobCompleted: (cleanerName: string, duration: string) =>
+  jobCompleted: (_cleanerName: string, duration: string) =>  // cleanerName unused but kept for API consistency
     `✅ Cleaning complete (${duration})! Please review: https://puretask.com/review -PureTask`,
 
   paymentProcessed: (amount: string) =>

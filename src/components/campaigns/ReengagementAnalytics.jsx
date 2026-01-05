@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { TrendingUp, Users, Mail, Calendar, DollarSign } from 'lucide-react';
+import { Users, Mail, Calendar, DollarSign } from 'lucide-react';
 
 export default function ReengagementAnalytics() {
   const [analytics, setAnalytics] = useState({

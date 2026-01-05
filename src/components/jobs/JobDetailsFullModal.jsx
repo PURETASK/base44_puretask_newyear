@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { X, MapPin, Clock, Calendar, DollarSign, User, Home, Briefcase, Navigation, Phone, MessageSquare, CheckCircle, Camera } from 'lucide-react';
+import { X, MapPin, Calendar, DollarSign, Home, Navigation, MessageSquare, CheckCircle, Camera } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { motion } from 'framer-motion';
 import { Dialog, DialogContent, DialogHeader } from '@/components/ui/dialog';

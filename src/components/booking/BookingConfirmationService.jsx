@@ -4,8 +4,6 @@ import { format, parseISO } from 'date-fns';
 import { convertTo12Hour } from '../utils/timeUtils';
 import {
   sendCleanerOpenedRequestNotification,
-  sendTimeReminderNotification,
-  sendFallbackActivatedNotification,
   sendBookingConfirmedNotification
 } from '../notifications/ProactiveNotifications';
 

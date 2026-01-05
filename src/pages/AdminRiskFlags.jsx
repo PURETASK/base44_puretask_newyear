@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Flag, CheckCircle, XCircle, Loader2, AlertTriangle, Calendar, Shield, Bell, Lock, Ban, UserX } from 'lucide-react';
+import { Flag, CheckCircle, XCircle, Loader2, AlertTriangle, Calendar, Shield, Lock, Ban, UserX } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { Input } from '@/components/ui/input';

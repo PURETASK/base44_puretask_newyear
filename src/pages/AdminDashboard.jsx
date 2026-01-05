@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
   Shield, Users, Briefcase, DollarSign, BarChart3, MessageSquare,
-  Mail, Tag, AlertTriangle, Package, Sparkles, TrendingUp, Gift,
-  Calendar, ChevronRight, Loader2, Eye, Settings, FileText, Wallet
+  Mail, Tag, AlertTriangle, Package, Sparkles, TrendingUp, ChevronRight, Loader2, Eye, Settings, FileText, Wallet
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { usePermission } from '@/hooks/useAuth';

@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Checkbox } from '@/components/ui/checkbox';
-import { Label } from '@/components/ui/label';
 import { MapPin, Save } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 

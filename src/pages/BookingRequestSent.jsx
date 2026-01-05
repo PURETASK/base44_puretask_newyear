@@ -3,13 +3,11 @@ import { handleError } from '@/lib/errorHandler';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import {
-  CheckCircle, Clock, Bell, Home, Loader2, Sparkles, Calendar,
-  User, MapPin, Star, MessageSquare, AlertTriangle
+  CheckCircle, Clock, Bell, Home, Loader2, Sparkles, MessageSquare, AlertTriangle
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

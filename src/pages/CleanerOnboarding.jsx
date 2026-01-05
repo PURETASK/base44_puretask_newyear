@@ -12,12 +12,11 @@ import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Progress } from '@/components/ui/progress';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { CheckCircle, Camera, Clock, Shield, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import TermsOfService from '../components/terms/TermsOfService';
 import { initiateKYCVerification, initiateBackgroundCheck } from '../components/verification/VerificationService';
-import { validatePhone, validateHourlyRate, sanitizeString } from '../components/utils/validation';
+import { validatePhone, sanitizeString } from '../components/utils/validation';
 import LocationRecommender from '../components/address/LocationRecommender';
 import { useAnalytics } from '../components/analytics/AnalyticsTracker';
 

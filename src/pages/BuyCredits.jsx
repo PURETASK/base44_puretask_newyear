@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { handleError } from '@/lib/errorHandler';
 import { useNavigate } from 'react-router-dom';
-import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Progress } from '@/components/ui/progress';
 import {
-  DollarSign, CreditCard, Zap, TrendingUp, CheckCircle, Shield,
-  Info, Sparkles, Loader2, ArrowLeft
+  DollarSign, CreditCard, TrendingUp, CheckCircle, Shield, Sparkles, Loader2, ArrowLeft
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';

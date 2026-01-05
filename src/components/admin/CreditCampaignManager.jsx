@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import {
   Select,
@@ -12,7 +11,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Megaphone, Users, DollarSign, Calendar, Loader2, AlertCircle, CheckCircle } from 'lucide-react';
+import { Megaphone, DollarSign, Calendar, Loader2, AlertCircle, CheckCircle } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { toast } from 'sonner';
 import { Badge } from '@/components/ui/badge';

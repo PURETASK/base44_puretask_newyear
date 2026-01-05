@@ -16,7 +16,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import {
   Mail, Plus, Edit2, Trash2, Eye, Send, Copy, Check,
-  ArrowLeft, Home, Loader2, Code, Zap, MessageSquare
+  ArrowLeft, Loader2, MessageSquare
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

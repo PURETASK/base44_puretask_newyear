@@ -4,10 +4,9 @@ import { createPageUrl } from '@/utils';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   Search, Calendar, DollarSign, MapPin, Star, CheckCircle, Shield,
-  Camera, Clock, MessageSquare, Award, TrendingUp, Users
+  Camera, Users
 } from 'lucide-react';
 
 export default function HowItWorksClients() {

@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { 
-  Bell, Clock, Calendar, MapPin, User, FileText, 
+  Bell, Calendar, MapPin, User, 
   CheckCircle, Send, Loader2, AlertCircle
 } from 'lucide-react';
-import { format, parseISO, addHours, isBefore, isToday, isTomorrow } from 'date-fns';
+import { format, parseISO, isToday, isTomorrow } from 'date-fns';
 
 export default function AutomatedJobReminders() {
   const [upcomingJobs, setUpcomingJobs] = useState([]);

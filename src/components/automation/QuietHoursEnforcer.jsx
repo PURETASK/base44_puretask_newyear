@@ -11,7 +11,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Clock, Moon, Sun, Shield } from 'lucide-react';
+import { Moon, Sun, Shield } from 'lucide-react';
 
 export const QuietHoursConfig = () => {
   return (

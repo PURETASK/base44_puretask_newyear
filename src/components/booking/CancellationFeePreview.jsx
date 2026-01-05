@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AlertTriangle, DollarSign, Calendar, Clock } from 'lucide-react';
+import { AlertTriangle, DollarSign, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,

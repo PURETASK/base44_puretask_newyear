@@ -4,7 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, MapPin, User, TrendingUp, Sparkles, Check, X, Loader2 } from 'lucide-react';
-import { format, addDays, parseISO } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AISchedulingSuggestions({ cleanerEmail }) {

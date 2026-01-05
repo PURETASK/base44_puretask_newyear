@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { 
   Shield, FileText, Camera, Clock, AlertTriangle, 
   Scale, Eye, Lock, CheckCircle, DollarSign, Gift,
-  ArrowRight, Download, Mail
+  ArrowRight, Mail
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

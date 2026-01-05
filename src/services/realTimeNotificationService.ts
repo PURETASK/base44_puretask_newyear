@@ -433,7 +433,7 @@ export class RealTimeNotificationService {
       if (notifications && notifications.length > 0) {
         console.log(`[RealTimeNotificationService] Polled ${notifications.length} new notifications`);
         
-        notifications.forEach(notification => {
+        notifications.forEach((notification: any) => {  // TODO: Add proper notification type
           this.handleNotification(notification);
         });
       }

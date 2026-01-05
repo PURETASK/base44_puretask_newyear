@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { handleError } from '@/lib/errorHandler';
 import { base44 } from '@/api/base44Client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { DollarSign, TrendingUp, Clock, CheckCircle, Zap, Calendar, Loader2 } from 'lucide-react';
-import { format } from 'date-fns';
-import InstantPayoutButton from '../components/payouts/InstantPayoutButton';
 import PayoutHistoryTable from '../components/payouts/PayoutHistoryTable';
 import EarningsBreakdown from '../components/payouts/EarningsBreakdown';
 import PayoutExplainer from '../components/payouts/PayoutExplainer';

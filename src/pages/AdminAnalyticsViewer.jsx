@@ -5,15 +5,14 @@ import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import {
-  BarChart3, TrendingUp, Users, Calendar, Loader2, Download, Filter,
+  BarChart3, TrendingUp, Users, Loader2, Download,
   Eye, MousePointer, UserPlus, ShoppingCart, Star, XCircle
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { format, subDays, startOfDay, endOfDay } from 'date-fns';
+import { format, subDays, startOfDay } from 'date-fns';
 
 export default function AdminAnalyticsViewer() {
   const navigate = useNavigate();

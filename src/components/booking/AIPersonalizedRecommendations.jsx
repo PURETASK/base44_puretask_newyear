@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { base44 } from '@/api/base44Client';
-import { Sparkles, Clock, Star, Heart, DollarSign, Calendar, TrendingUp, Gift, Loader2, ChevronRight } from 'lucide-react';
+import { Sparkles, Clock, Star, Heart, Calendar, TrendingUp, Gift, Loader2, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { format, getHours } from 'date-fns';
+import { getHours } from 'date-fns';
 
 export default function AIPersonalizedRecommendations({ clientEmail, onSelectCleaner, onSelectTime, onSelectAddOn }) {
   const [recommendations, setRecommendations] = useState(null);

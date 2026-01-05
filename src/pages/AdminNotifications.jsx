@@ -4,7 +4,7 @@ import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Loader2, Bell, CheckCircle, AlertCircle, RefreshCw } from 'lucide-react';
+import { Loader2, Bell, RefreshCw } from 'lucide-react';
 import { seedNotificationTemplates } from '../components/notifications/TemplateSeeder';
 
 export default function AdminNotifications() {

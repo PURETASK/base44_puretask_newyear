@@ -19,9 +19,9 @@ import {
 } from '@/components/ui/dialog';
 import { 
   HelpCircle, Send, Clock, CheckCircle, AlertCircle, Loader2, 
-  MessageSquare, FileText, Search, Filter, ChevronDown, ChevronUp,
+  MessageSquare, Search, Filter, ChevronDown, ChevronUp,
   Book, CreditCard, Calendar, Shield, Phone, Mail, ExternalLink,
-  TrendingUp, User, Package, Zap, X, Eye, Home
+  TrendingUp, User, Package, Zap, Eye
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 

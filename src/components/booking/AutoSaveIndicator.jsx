@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Cloud, CloudOff, CheckCircle } from 'lucide-react';
+import { Cloud, CheckCircle } from 'lucide-react';
 
 export default function AutoSaveIndicator({ isSaving, lastSaved }) {
   const [showSaved, setShowSaved] = useState(false);

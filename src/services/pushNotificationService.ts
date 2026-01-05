@@ -32,13 +32,14 @@ interface PushNotificationPayload {
   requireInteraction?: boolean;
 }
 
-interface PushSubscriptionData {
-  endpoint: string;
-  keys: {
-    p256dh: string;
-    auth: string;
-  };
-}
+// PushSubscriptionData type moved to notification-types.d.ts for reusability
+// interface PushSubscriptionData {
+//   endpoint: string;
+//   keys: {
+//     p256dh: string;
+//     auth: string;
+//   };
+// }
 
 export class PushNotificationService {
   private enabled: boolean = false;
@@ -148,7 +149,7 @@ export class PushNotificationService {
       // Subscribe
       this.subscription = await this.registration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: vapidKey
+        applicationServerKey: vapidKey as unknown as BufferSource
       });
 
       console.log('[PushNotificationService] Subscribed to push notifications');
@@ -260,9 +261,9 @@ export class PushNotificationService {
         body: payload.body,
         icon: payload.icon || '/icon-192.png',
         badge: payload.badge || '/badge-72.png',
-        image: payload.image,
+        // image: payload.image, // Not supported in all browsers, removed for TS compatibility
         data: payload.data,
-        actions: payload.actions,
+        actions: payload.actions as any, // Actions supported but not in base TS NotificationOptions
         tag: payload.tag,
         requireInteraction: payload.requireInteraction || false,
         vibrate: [200, 100, 200]

@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { 
   MapPin, Clock, Sparkles, Calendar, CheckCircle2, 
-  Loader2, AlertTriangle, Navigation, MessageSquare, Play, Square
+  Loader2, AlertTriangle, Navigation, MessageSquare
 } from 'lucide-react';
 import { format } from 'date-fns';
 import JobStartCheckIn from '../components/jobs/JobStartCheckIn';

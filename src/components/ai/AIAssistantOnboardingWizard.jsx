@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Switch } from '@/components/ui/switch';
@@ -10,7 +9,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { base44 } from '@/api/base44Client';
 import { toast } from 'sonner';
 import { analytics } from '../analytics/AnalyticsService';
-import AIFeatureShowcase from './AIFeatureShowcase';
 
 const SPECIALTY_OPTIONS = ['Pet-Friendly', 'Eco-Warrior', 'Deep Clean Expert', 'Move-Out Specialist'];
 const SERVICE_OPTIONS = [

@@ -3,16 +3,13 @@ import { base44 } from '@/api/base44Client';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import {
-  Calendar, Clock, MapPin, User, Phone, Mail, Star, DollarSign,
-  CheckCircle, Home, Droplets, Package, Image, MessageSquare,
-  AlertCircle, XCircle, TrendingUp, Loader2, Receipt, FileText
+  Calendar, Clock, MapPin, User, Star, DollarSign,
+  CheckCircle, Home, Droplets, Package, Image,
+  AlertCircle, XCircle, TrendingUp, Loader2, FileText
 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { convertTo12Hour } from '../utils/timeUtils';
-import { motion } from 'framer-motion';
 
 export default function BookingDetailsModal({ booking, open, onClose }) {
   const [cleaner, setCleaner] = useState(null);

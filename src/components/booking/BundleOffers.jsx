@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Sparkles, Tag, CheckCircle, TrendingUp, Package, Calendar, Zap } from 'lucide-react';
+import { Sparkles, Tag, CheckCircle, TrendingUp, Package, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function BundleOffers({ 

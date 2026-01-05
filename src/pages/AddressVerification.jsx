@@ -11,7 +11,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { 
   MapPin, Shield, ExternalLink, AlertTriangle, CheckCircle, 
-  Eye, Lock, Navigation, Home
+  Eye, Lock, Navigation
 } from 'lucide-react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';

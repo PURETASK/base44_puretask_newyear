@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Crown, ChevronDown, Star, CheckCircle2, DollarSign, AlertCircle } from 'lucide-react';
+import { Crown, ChevronDown, Star, CheckCircle2, DollarSign } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion, AnimatePresence } from 'framer-motion';

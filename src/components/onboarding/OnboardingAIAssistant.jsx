@@ -4,8 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { base44 } from '@/api/base44Client';
-import { MessageSquare, Send, X, Sparkles, Loader2, HelpCircle, Lightbulb } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Send, X, Sparkles, Loader2, HelpCircle, Lightbulb } from 'lucide-react';
+import { motion } from 'framer-motion';
 import MessageBubble from '../messaging/MessageBubble';
 
 export default function OnboardingAIAssistant({ currentStep, stepName }) {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, Search, Calendar, Star } from 'lucide-react';
+import { Search, Calendar, Star } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ClientOnboardingTutorial({ open, onComplete }) {

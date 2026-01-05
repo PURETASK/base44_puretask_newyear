@@ -4,7 +4,7 @@ import { CleanerProfile } from '@/api/entities';
 import { ClientProfile } from '@/api/entities';
 import { Review } from '@/api/entities';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { TrendingUp, Users, Star, Calendar, CheckCircle, DollarSign, Award, Percent } from 'lucide-react';
+import { TrendingUp, Users, Star, Calendar, CheckCircle, DollarSign, Award } from 'lucide-react';
 
 export default function PlatformMetrics() {
   const [metrics, setMetrics] = useState({

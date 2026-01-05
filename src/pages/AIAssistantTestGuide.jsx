@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  CheckCircle, Circle, Sparkles, MessageSquare, Calendar, 
+  CheckCircle, Circle, Sparkles, 
   Target, Bell, Code, Users, Settings 
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';

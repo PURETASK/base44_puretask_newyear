@@ -4,13 +4,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
-  MapPin, Clock, DollarSign, Home, Bed, Bath,
+  MapPin, Clock, Home, Bed, Bath,
   Maximize, Eye, Zap, Briefcase
 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
-import { getServiceIcon, ServiceBadge } from '../utils/serviceIcons';
+import { ServiceBadge } from '../utils/serviceIcons';
 
 export default function JobCard({ job, index, onSelect, onClaim, isMine = false, isRecommended = false, isUrgent = false, showPayHighlight = false }) {
   const [isClaimed, setIsClaimed] = useState(isMine);

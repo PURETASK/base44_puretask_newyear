@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Clock, CheckCircle2, XCircle, Loader2 } from 'lucide-react';
+import { Users, Clock, XCircle, Loader2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
 

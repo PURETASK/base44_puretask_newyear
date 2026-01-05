@@ -10,7 +10,6 @@
  */
 
 import { base44 } from '@/api/base44Client';
-import { usdToCredits, CREDITS_PER_USD } from '../credits/CreditCalculator';
 
 /**
  * Credit Package Definitions

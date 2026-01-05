@@ -27,7 +27,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { 
-  History, Search, Download, Filter, Loader2, 
+  History, Search, Download, Loader2, 
   ArrowUpCircle, ArrowDownCircle, Lock, Unlock, RefreshCw,
   ChevronLeft, ChevronRight, Calendar, ExternalLink
 } from 'lucide-react';

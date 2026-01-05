@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { User } from '@/api/entities';
-import { CleanerProfile } from '@/api/entities'; // This import seems unused based on the provided code, but kept as per instructions
+// This import seems unused based on the provided code, but kept as per instructions
 import { Booking } from '@/api/entities';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -9,8 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import {
-  MapPin, Clock, DollarSign, Home, Calendar as CalendarIcon,
-  User as UserIcon, CheckCircle, XCircle, AlertCircle
+  MapPin, Clock, DollarSign, Calendar as CalendarIcon,
+  User as UserIcon, CheckCircle, AlertCircle
 } from 'lucide-react';
 import { format, parseISO, isValid } from 'date-fns';
 

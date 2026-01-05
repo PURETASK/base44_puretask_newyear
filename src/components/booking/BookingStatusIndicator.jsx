@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   Clock, CheckCircle2, XCircle, AlertCircle, Loader2, 
-  MessageSquare, Navigation, Camera, Star, Shield, Calendar
+  MessageSquare, Navigation, Camera, Shield, Calendar
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';

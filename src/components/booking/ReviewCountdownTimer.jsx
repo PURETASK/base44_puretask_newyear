@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, AlertTriangle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default function ReviewCountdownTimer({ deadline }) {
   const [timeLeft, setTimeLeft] = useState('');

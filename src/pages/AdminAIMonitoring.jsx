@@ -6,8 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
-  Bot, TrendingUp, MessageSquare, CheckCircle2, XCircle,
-  Clock, Users, Calendar, Loader2, RefreshCw, Mail, Smartphone, Bell
+  Bot, TrendingUp, MessageSquare, CheckCircle2, Users, Calendar, Loader2, RefreshCw, Mail, Smartphone, Bell
 } from 'lucide-react';
 import { toast } from 'sonner';
 import ReengagementAnalytics from '../components/campaigns/ReengagementAnalytics';

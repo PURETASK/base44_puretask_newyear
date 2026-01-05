@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Star, MapPin, Award, Sparkles, Clock, CheckCircle, Home, Droplet, Truck, Key } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { getTierBadgeColor, getTierCardClasses, getTierLightColor, getTierSolidColor } from '../utils/tierColors';
 
 export default function EnhancedCleanerCard({ cleaner, onPin, isPinned }) {
   const baseRateCredits = cleaner.base_rate_credits_per_hour || cleaner.hourly_rate || 25;

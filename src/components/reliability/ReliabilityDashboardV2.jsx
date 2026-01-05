@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { 
-  Award, TrendingUp, CheckCircle, Clock, XCircle, 
+  Award, CheckCircle, Clock, XCircle, 
   Camera, MessageSquare, Star, Target, Zap 
 } from 'lucide-react';
 import ReliabilityScoreExplainer from './ReliabilityScoreExplainer';

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Clock, DollarSign, Eye, Navigation, Camera, CheckCircle, AlertCircle } from 'lucide-react';
+import { MapPin, Clock, Eye, CheckCircle, AlertCircle } from 'lucide-react';
 import { format, parseISO, isToday, isTomorrow } from 'date-fns';
 import { motion } from 'framer-motion';
 import { convertTo12Hour } from '../utils/timeUtils';

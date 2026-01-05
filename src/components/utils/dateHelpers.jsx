@@ -1,4 +1,4 @@
-import { format, parseISO, isValid, addDays, differenceInHours, differenceInMinutes } from 'date-fns';
+import { format, parseISO, isValid, differenceInHours, differenceInMinutes } from 'date-fns';
 
 /**
  * Safely format a booking date

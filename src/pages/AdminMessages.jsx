@@ -20,8 +20,8 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import {
-  Mail, Search, Filter, Eye, RefreshCw, Loader2, Send, CheckCircle,
-  XCircle, Clock, AlertCircle, ArrowLeft, Home, Calendar
+  Mail, Filter, Eye, RefreshCw, Loader2, Send, CheckCircle,
+  XCircle, Clock, AlertCircle, ArrowLeft, Home
 } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 

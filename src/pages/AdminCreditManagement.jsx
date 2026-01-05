@@ -3,22 +3,21 @@ import { handleError } from '@/lib/errorHandler';
 import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  Wallet, DollarSign, Gift, AlertCircle, ArrowLeft, Home, 
-  TrendingUp, Users, Loader2, Search, MinusCircle, Megaphone, History, BookOpen 
+  Wallet, DollarSign, Gift, ArrowLeft, Home, 
+  TrendingUp, Users, Loader2, Search, MinusCircle, Megaphone, History 
 } from 'lucide-react';
-import { creditsToUSD, usdToCredits } from '../components/credits/CreditCalculator';
+import { creditsToUSD } from '../components/credits/CreditCalculator';
 import PayoutBatchProcessor from '../components/admin/PayoutBatchProcessor';
 import TransactionHistoryAdvanced from '../components/admin/TransactionHistoryAdvanced';
 import CreditGrantTool from '../components/admin/CreditGrantTool';
 import ClientSearchSelector from '../components/admin/ClientSearchSelector';
 import ClientCreditHistory from '../components/admin/ClientCreditHistory';
 import CreditDebitTool from '../components/admin/CreditDebitTool';
-import AdvancedClientFilters from '../components/admin/AdvancedClientFilters';
 import PendingPayoutsDetails from '../components/admin/PendingPayoutsDetails';
 import CreditCampaignManager from '../components/admin/CreditCampaignManager';
 import CreditManagementGuide from '../components/admin/CreditManagementGuide';

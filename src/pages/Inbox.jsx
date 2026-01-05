@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { MessageSquare, Search, Plus, Archive, Calendar } from 'lucide-react';
+import { MessageSquare, Search, Plus, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Inbox() {

@@ -3,10 +3,9 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Badge } from '@/components/ui/badge';
 import { Repeat, Calendar, DollarSign, Loader2 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
-import { addDays, addWeeks, addMonths, format } from 'date-fns';
+import { addWeeks, addMonths, format } from 'date-fns';
 
 export default function RecurringBookingSetup({ booking, open, onClose, onCreated }) {
   const [frequency, setFrequency] = useState('weekly');

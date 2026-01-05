@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import MessageBubble from './MessageBubble';
-import { Send, Paperclip, Loader2, User, Image as ImageIcon, X } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Send, Paperclip, Loader2, User, X } from 'lucide-react';
 
 export default function ChatConversation({ conversationId, currentUser }) {
   const [messages, setMessages] = useState([]);

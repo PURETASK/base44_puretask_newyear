@@ -176,7 +176,7 @@ export class ClientNotificationService {
       recipientEmail: job.client_id,
       type: 'booking_accepted',
       title: '✅ Booking Confirmed!',
-      message: `${cleaner?.name || 'Your cleaner'} accepted your booking for ${job.date} at ${job.start_time}`,
+      message: `${cleaner?.name || 'Your cleaner'} accepted your booking for ${job.date} at ${job.time}`,
       payload: { booking_id: job.id },
       link: `ClientBookings?booking=${job.id}`,
       priority: 'high'
@@ -188,9 +188,9 @@ export class ClientNotificationService {
       first_name: client?.first_name || 'there',
       cleaner_name: cleaner?.name || 'Your cleaner',
       date: job.date,
-      time: job.start_time,
+      time: job.time,
       address: job.address,
-      price: `$${job.total_price}`,
+      price: job.pricing_snapshot?.total_price ? `$${job.pricing_snapshot.total_price}` : 'TBD',
       manage_booking_link: `https://puretask.com/ClientBookings?booking=${job.id}`
     });
 
@@ -288,11 +288,13 @@ export class ClientNotificationService {
 
     console.log(`[ClientNotificationService] Notifying client: Job started`);
 
-    const startTime = new Date(job.cleaner_start_time || new Date()).toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true
-    });
+    const startTime = job.start_at 
+      ? new Date(job.start_at).toLocaleTimeString('en-US', {
+          hour: 'numeric',
+          minute: '2-digit',
+          hour12: true
+        })
+      : 'recently';
 
     // In-app notification
     await NotificationService.create({
@@ -302,7 +304,7 @@ export class ClientNotificationService {
       message: `${cleaner?.name || 'Your cleaner'} started at ${startTime}. You can track progress in real-time.`,
       payload: {
         booking_id: job.id,
-        start_time: job.cleaner_start_time
+        start_time: job.start_at
       },
       link: `ClientBookings?booking=${job.id}`,
       priority: 'medium'
@@ -312,7 +314,7 @@ export class ClientNotificationService {
     this.emit({
       type: 'job_started',
       jobId: job.id,
-      startTime: job.cleaner_start_time,
+      startTime: job.start_at,
       message: 'Cleaning started!'
     });
   }
@@ -362,7 +364,8 @@ export class ClientNotificationService {
 
     console.log(`[ClientNotificationService] URGENT: Extra time requested - ${minutesRequested} minutes`);
 
-    const additionalCost = ((job.total_price / (job.estimated_hours * 60)) * minutesRequested).toFixed(2);
+    const hourlyRate = job.pricing_snapshot?.hourly_rate || 0;
+    const additionalCost = ((hourlyRate / 60) * minutesRequested).toFixed(2);
 
     // In-app notification (URGENT PRIORITY)
     await NotificationService.create({

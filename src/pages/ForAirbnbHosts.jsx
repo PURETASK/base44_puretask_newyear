@@ -5,8 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
-  Home, Clock, Star, Zap, CheckCircle, Camera,
-  Calendar, DollarSign, Award, TrendingUp, Shield
+  Home, Clock, Zap, CheckCircle, Camera, DollarSign, TrendingUp, Shield
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

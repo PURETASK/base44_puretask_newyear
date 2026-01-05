@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
-import { Loader2, Bell, Mail, MessageSquare, Smartphone, Clock, Moon } from 'lucide-react';
+import { Loader2, Bell, Mail, MessageSquare, Smartphone, Moon } from 'lucide-react';
 import { pushNotificationService } from '@/services/pushNotificationService';
 import { smsService } from '@/services/smsService';
 

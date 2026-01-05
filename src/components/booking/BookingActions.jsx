@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Calendar, XCircle, AlertTriangle, MessageSquare, Receipt, CheckCircle2, X } from 'lucide-react'; // Added CheckCircle2 and X for accept/decline icons
+import { Calendar, XCircle, AlertTriangle, Receipt, CheckCircle2, X } from 'lucide-react'; // Added CheckCircle2 and X for accept/decline icons
 import RescheduleBooking from './RescheduleBooking';
 import CancellationPolicy from './CancellationPolicy';
 import DisputeForm from '../disputes/DisputeForm';

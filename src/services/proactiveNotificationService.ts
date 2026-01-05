@@ -1,6 +1,7 @@
 // Proactive Notification Service
 // Smart notifications based on job state, time, and context
 
+import React from 'react';
 import type { JobRecord } from '@/types/cleanerJobTypes';
 import { jobEventBus } from './jobEvents';
 

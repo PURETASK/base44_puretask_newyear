@@ -6,12 +6,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  Search, Save, X, AlertCircle, CheckCircle2, 
-  History, Clock, Settings as SettingsIcon, Loader2
+  Search, Save, X, AlertCircle, Clock, Settings as SettingsIcon, Loader2
 } from 'lucide-react';
 import { toast } from 'sonner';
 

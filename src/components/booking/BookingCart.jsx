@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { ShoppingCart, Trash2, Edit, Calendar, Clock, Home, Sparkles, Tag } from 'lucide-react';
+import { ShoppingCart, Trash2, Edit, Calendar, Clock, Home, Tag } from 'lucide-react';
 import { format } from 'date-fns';
 
 export default function BookingCart({ 

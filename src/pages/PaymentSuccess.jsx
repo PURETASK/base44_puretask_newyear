@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { handleError } from '@/lib/errorHandler';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle, ArrowRight, Loader2, Clock, Bell, Camera, Star, Calendar, MessageSquare } from 'lucide-react';
+import { CheckCircle, Loader2, Clock, Bell, Camera, Star, Calendar, MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { format, parseISO } from 'date-fns';
 import { convertTo12Hour } from '../components/utils/timeUtils';

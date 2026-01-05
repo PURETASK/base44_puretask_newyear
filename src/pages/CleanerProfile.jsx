@@ -12,7 +12,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import {
   MapPin, Star, Calendar as CalendarIcon, CheckCircle, Clock, Loader2, AlertCircle,
-  Sparkles, Camera, Shield, Briefcase, MessageCircle, Heart, Award,
+  Sparkles, Camera, Shield, Briefcase, MessageCircle, Award,
   PlayCircle, ChevronLeft, ChevronRight, Check, Zap, TrendingUp, Home, Bath, Maximize, X
 } from 'lucide-react';
 import FavoriteButton from '@/components/favorites/FavoriteButton';

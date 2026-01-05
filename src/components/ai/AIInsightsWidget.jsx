@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Sparkles, Calendar, TrendingUp, MessageSquare, ChevronRight, Loader2 } from 'lucide-react';
+import { Sparkles, Calendar, TrendingUp, ChevronRight, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { base44 } from '@/api/base44Client';
 import { createPageUrl } from '@/utils';

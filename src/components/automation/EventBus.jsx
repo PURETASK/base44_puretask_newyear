@@ -5,7 +5,6 @@
  */
 
 import NotificationService from '../notifications/NotificationService';
-import { base44 } from '@/api/base44Client';
 
 /**
  * Event Registry - Maps events to handlers

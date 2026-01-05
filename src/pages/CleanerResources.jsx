@@ -9,9 +9,9 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { 
-  GraduationCap, Tag, BookOpen, Video, FileText, TrendingUp, 
-  DollarSign, Star, Award, Sparkles, Link as LinkIcon, Copy, CheckCircle,
-  Shield, Camera, Clock, MessageSquare, Package, Loader2
+  GraduationCap, Tag, BookOpen, Video, TrendingUp, 
+  DollarSign, Star, Sparkles, Link as LinkIcon, Copy, CheckCircle,
+  Shield, Camera, Clock, Package, Loader2
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

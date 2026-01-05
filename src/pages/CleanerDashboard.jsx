@@ -12,13 +12,11 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
   TrendingUp, Briefcase, DollarSign, Calendar, Search, GraduationCap,
-  Settings, MessageSquare, Star, Award, Zap, BarChart3, ChevronRight,
-  Loader2, CheckCircle, Clock, Users, Video, Package, Target, TrendingDown,
-  AlertTriangle, Lightbulb, ArrowUp, Camera, MapPin, Bot
+  Settings, MessageSquare, Star, Award, BarChart3, ChevronRight,
+  Loader2, CheckCircle, Clock, Video, Package, Target, Lightbulb, ArrowUp, Camera, MapPin, Bot
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { format, startOfWeek, endOfWeek } from 'date-fns';
-import ReliabilityMeterV2 from '../components/reliability/ReliabilityMeterV2';
+import { startOfWeek, endOfWeek } from 'date-fns';
 import { getTierBadgeColor } from '../components/utils/tierColors';
 import SmartSchedulingWidget from '../components/dashboard/SmartSchedulingWidget';
 import UpcomingJobReminders from '../components/dashboard/UpcomingJobReminders';

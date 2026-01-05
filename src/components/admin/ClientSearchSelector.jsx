@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Search, User, Mail, Loader2, X } from 'lucide-react';
+import { Search, Mail, Loader2, X } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 export default function ClientSearchSelector({ onSelectClient, selectedEmail }) {

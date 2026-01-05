@@ -16,9 +16,8 @@ import {
 } from '@/components/ui/select';
 import { AdminPermissions } from '@/components/admin/AdminPermissions';
 import { 
-  DollarSign, TrendingUp, Users, Wallet, Loader2, CheckCircle, Clock, XCircle,
-  Download, Calendar, ArrowUpRight, CreditCard, Gift, RefreshCw, TrendingDown,
-  PieChart as PieChartIcon, BarChart3, Activity
+  DollarSign, TrendingUp, Wallet, Loader2, CheckCircle, Clock, XCircle,
+  Download, Calendar, ArrowUpRight, CreditCard, Gift, RefreshCw, BarChart3, Activity
 } from 'lucide-react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { motion } from 'framer-motion';

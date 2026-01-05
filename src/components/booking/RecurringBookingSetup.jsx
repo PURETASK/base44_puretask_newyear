@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Repeat, Calendar, Info } from 'lucide-react';
-import { format, addWeeks, addDays, addMonths } from 'date-fns';
+import { format, addWeeks, addMonths } from 'date-fns';
 
 export default function RecurringBookingSetup({ bookingTemplate, onGenerateDates, onCancel }) {
   const [frequency, setFrequency] = useState('weekly');

@@ -7,12 +7,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
-import { Alert, AlertDescription } from '@/components/ui/alert';
 import {
-  Users, Gift, DollarSign, Copy, Check, Share2, Mail, MessageSquare,
-  TrendingUp, Sparkles, Star, Loader2, CheckCircle, Clock
+  Users, Gift, DollarSign, Copy, Check, Share2, Mail, MessageSquare, Sparkles, Star, Loader2, CheckCircle, Clock
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 
 export default function ReferralProgram() {

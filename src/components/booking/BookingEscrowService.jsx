@@ -10,7 +10,6 @@ import {
   calculateEscrow,
   calculateActualHours,
   calculateFinalChargeAndRefund,
-  calculateCleanerPayout,
   getPayoutPercentage,
   CREDITS_PER_USD
 } from '../credits/CreditCalculator';

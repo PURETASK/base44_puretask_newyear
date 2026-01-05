@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Scale, ChevronDown, AlertCircle, Users, Clock } from 'lucide-react';
+import { Scale, ChevronDown, Users, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion, AnimatePresence } from 'framer-motion';

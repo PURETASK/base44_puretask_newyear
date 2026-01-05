@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
 import { Badge } from '@/components/ui/badge';
-import { DollarSign, TrendingUp, Award } from 'lucide-react';
+import { DollarSign, TrendingUp } from 'lucide-react';
 
 export default function EarningsCalculator() {
   const [city, setCity] = useState('boston');

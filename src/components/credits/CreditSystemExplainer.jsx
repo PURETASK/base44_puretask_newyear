@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Coins, DollarSign, Info, ChevronDown, Shield, TrendingUp } from 'lucide-react';
+import { Coins, DollarSign, ChevronDown, Shield, TrendingUp } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CreditSystemExplainer() {

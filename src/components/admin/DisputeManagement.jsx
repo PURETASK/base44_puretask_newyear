@@ -6,12 +6,9 @@ import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Alert, AlertDescription } from '@/components/ui/alert';
 import { 
   AlertTriangle, 
-  CheckCircle, 
-  XCircle, 
-  ExternalLink,
+  CheckCircle,
   Loader2,
   Eye
 } from 'lucide-react';

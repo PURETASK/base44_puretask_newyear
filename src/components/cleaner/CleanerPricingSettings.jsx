@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { DollarSign, Info, Sparkles, TrendingUp } from 'lucide-react';
+import { DollarSign, Info, TrendingUp } from 'lucide-react';
 import {
   TIER_BASE_RANGES,
   ADDON_RANGES,

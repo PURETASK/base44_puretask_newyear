@@ -1,12 +1,12 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { 
   MapPin, Clock, DollarSign, Home, Bed, Bath, Maximize,
-  X, Calendar, User, Briefcase, CheckCircle, AlertTriangle,
-  Navigation, Shield, Sparkles, Camera
+  X, Calendar, Briefcase, CheckCircle, AlertTriangle,
+  Navigation, Sparkles
 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { convertTo12Hour } from '../utils/timeUtils';

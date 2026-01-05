@@ -1,7 +1,6 @@
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { TrendingUp, TrendingDown, Minus, Info } from 'lucide-react';
+import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 export default function AIImpactExplainer({ 

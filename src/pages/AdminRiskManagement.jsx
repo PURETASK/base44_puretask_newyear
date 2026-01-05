@@ -5,14 +5,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Shield, AlertTriangle, CheckCircle, Search, Loader2, User, XCircle, Eye, Lock, Ban, UserX, Clock, TrendingUp, BarChart3, Activity, Bell, ExternalLink, Flag, FileText } from 'lucide-react';
+import { Shield, AlertTriangle, CheckCircle, Loader2, XCircle, Eye, Lock, Ban, UserX, Clock, TrendingUp, BarChart3, Bell, ExternalLink, Flag } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { createPageUrl } from '@/utils';
 import { useNavigate } from 'react-router-dom';
 

@@ -1,6 +1,7 @@
 // AI Photo Quality Validation Service
 // Automatically validates photo quality using AI vision analysis
 
+import React from 'react';
 import { base44 } from '@/api/base44Client';
 
 export interface PhotoQualityResult {

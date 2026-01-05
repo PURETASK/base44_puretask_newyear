@@ -4,9 +4,7 @@ import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Loader2, Plus, Settings, Trash2, Edit, ToggleLeft, ToggleRight } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Loader2, Plus, Settings, Trash2, ToggleLeft, ToggleRight } from 'lucide-react';
 
 export default function AdminPricingManagement() {
   const [pricingRules, setPricingRules] = useState([]);

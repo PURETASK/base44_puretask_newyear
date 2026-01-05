@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
-  Heart, Shield, Users, Baby, CheckCircle, Star,
+  Heart, Shield, Users, Baby, Star,
   Home, Sparkles, Award, Clock, AlertTriangle, Calendar
 } from 'lucide-react';
 import { motion } from 'framer-motion';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DollarSign, ChevronDown, ChevronUp, Info, TrendingUp, Tag } from 'lucide-react';
+import { DollarSign, ChevronDown, Info, TrendingUp, Tag } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion, AnimatePresence } from 'framer-motion';

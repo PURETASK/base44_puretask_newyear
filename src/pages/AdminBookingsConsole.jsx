@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { AdminPermissions } from '@/components/admin/AdminPermissions';
 import { AdminAuditLogger } from '@/components/admin/AdminAuditLogger';
-import { Calendar, Search, Filter, Loader2, Eye, Edit, XCircle, AlertTriangle } from 'lucide-react';
+import { Calendar, Loader2, Eye, XCircle, AlertTriangle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function AdminBookingsConsole() {

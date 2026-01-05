@@ -3,7 +3,7 @@ import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Sparkles, Calendar, Clock, MapPin, TrendingUp, Check, X, Loader2 } from 'lucide-react';
+import { Sparkles, Calendar, Check, X, Loader2 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { motion, AnimatePresence } from 'framer-motion';
 

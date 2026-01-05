@@ -1,7 +1,6 @@
 import React from 'react';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Award, Shield, Clock, Camera, Star, Heart, 
+import { Shield, Clock, Camera, Star, Heart, 
   Zap, CheckCircle, TrendingUp, Crown
 } from 'lucide-react';
 import { motion } from 'framer-motion';

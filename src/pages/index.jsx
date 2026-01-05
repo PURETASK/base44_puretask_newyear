@@ -649,7 +649,7 @@ function PagesContent() {
                 <Route path="/DamageClaimsPolicy" element={<DamageClaimsPolicy />} />
                 
                     <Route path="/DesignSystemDemo" element={<DesignSystemDemo />} />
-                    <Route path="/NotificationTestPage" element={<NotificationTestPage />} />
+                    <Route path="/notification-test" element={<NotificationTestPage />} />
                 
                 <Route path="/FavoriteCleaners" element={<FavoriteCleaners />} />
                 

@@ -9,17 +9,12 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import {
-  Heart, Star, MapPin, DollarSign, Calendar, Loader2, Trash2,
+  Heart, Star, Calendar, Loader2, Trash2,
   Edit2, Save, X, Sparkles, TrendingUp, Search, Plus, Zap
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog';
+
+
 import { toast } from 'sonner';
 
 export default function FavoriteCleaners() {

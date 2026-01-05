@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Package, Sparkles, Info, ExternalLink } from 'lucide-react';
+import { Package, Sparkles, Info } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const PRODUCTS = {

@@ -9,7 +9,7 @@ import {
   MapPin, User, MessageSquare, ArrowRight, Bell, Camera
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { format, parseISO, differenceInHours, isPast, isFuture } from 'date-fns';
+import { format, parseISO, differenceInHours } from 'date-fns';
 import { convertTo12Hour } from '../utils/timeUtils';
 import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';

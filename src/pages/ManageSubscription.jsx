@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Calendar, Pause, PlayCircle, XCircle, Loader2, TrendingUp, DollarSign, Clock, MapPin } from 'lucide-react';
+import { Calendar, Pause, PlayCircle, XCircle, Loader2, Clock, MapPin } from 'lucide-react';
 
 export default function ManageSubscription() {
   const [searchParams] = useSearchParams();

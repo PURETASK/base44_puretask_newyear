@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Search, Shield, Award, Star, MapPin, Clock, Eye, Ban, Play } from 'lucide-react'; // Removed CheckCircle, XCircle
 import { motion } from 'framer-motion';
 import CleanerDetailsModal from './CleanerDetailsModal';
-import ReliabilityMeter from '../reliability/ReliabilityMeter'; // This component is not used in the current version of the file, but keep the import.
+// This component is not used in the current version of the file, but keep the import.
 import { calculateReliabilityScore } from '../reliability/ReliabilityScoreCalculator';
 
 export default function CleanerCardGrid({ onCleanerSelect }) {

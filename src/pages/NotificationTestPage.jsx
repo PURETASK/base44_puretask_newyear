@@ -4,10 +4,10 @@
 import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Badge } from '@/components/ui/badge';
-import { Loader2, Bell, MessageSquare, Smartphone, Mail, Zap, CheckCircle2, XCircle, AlertTriangle } from 'lucide-react';
+import { Loader2, Bell, MessageSquare, Smartphone, Zap, CheckCircle2, AlertTriangle } from 'lucide-react';
 import { jobEventBus } from '@/services/jobEvents';
 import { clientNotificationService } from '@/services/clientNotificationService';
-import { smsService, ClientSMSTemplates, CleanerSMSTemplates } from '@/services/smsService';
+import { smsService, ClientSMSTemplates } from '@/services/smsService';
 import { pushNotificationService, ClientPushTemplates } from '@/services/pushNotificationService';
 import { realTimeNotificationService } from '@/services/realTimeNotificationService';
 import { notificationIntegration } from '@/services/notificationIntegration';
@@ -35,18 +35,29 @@ export default function NotificationTestPage() {
     try {
       setLoading(true);
       
-      // Get current user
-      const currentUser = await base44.auth.me();
-      setUser(currentUser);
+      // Try to get current user (but don't fail if not logged in)
+      let currentUser = null;
+      try {
+        currentUser = await base44.auth.me();
+        setUser(currentUser);
+      } catch (authError) {
+        console.log('Not logged in - using mock data for testing');
+      }
 
       // Check system capabilities
       checkSystemStatus();
 
-      // Initialize notification integration
-      await notificationIntegration.initialize();
-
-      // Initialize real-time notifications
-      await notificationIntegration.initializeRealTime(currentUser.email);
+      // Initialize notification integration (may fail without auth, that's OK)
+      try {
+        await notificationIntegration.initialize();
+        
+        // Initialize real-time notifications if we have a user
+        if (currentUser) {
+          await notificationIntegration.initializeRealTime(currentUser.email);
+        }
+      } catch (integrationError) {
+        console.log('Notification integration skipped:', integrationError.message);
+      }
 
       // Subscribe to notifications
       clientNotificationService.subscribe((notification) => {
@@ -57,11 +68,13 @@ export default function NotificationTestPage() {
         addNotificationLog('REAL_TIME', notification);
       });
 
-      // Create test job data
-      createTestData();
+      // ALWAYS create test job data (works without auth)
+      await createTestData();
 
     } catch (error) {
       console.error('Failed to initialize:', error);
+      // Even if initialization fails, create test data so buttons work
+      await createTestData();
     } finally {
       setLoading(false);
     }
@@ -77,49 +90,102 @@ export default function NotificationTestPage() {
     });
   };
 
-  const createTestData = () => {
-    // Create mock job
-    const mockJob = {
-      id: 'test_job_' + Date.now(),
-      client_id: user?.email || 'client@test.com',
-      cleaner_id: 'cleaner@test.com',
-      status: 'OFFERED',
-      state: 'OFFERED',
-      date: new Date().toISOString().split('T')[0],
-      start_time: '09:00',
-      end_time: '12:00',
-      estimated_hours: 3,
-      total_price: 120,
-      latitude: 34.0522,
-      longitude: -118.2437,
-      address: '123 Main St, Los Angeles, CA 90012',
-      cleaning_type: 'deep',
-      instant_cash_out_fee: 0.10,
-      auto_approval_hours: 18,
-      reliability_weight: 0.20,
-      pet_fee: 30,
-      billing_cap_minutes: 180
-    };
+  const createTestData = async () => {
+    try {
+      const jobId = 'test_job_' + Date.now();
+      const clientEmail = user?.email || 'client@test.com';
+      const cleanerEmail = 'cleaner@test.com';
 
-    const mockCleaner = {
-      id: 'cleaner_profile_1',
-      user_email: 'cleaner@test.com',
-      name: 'Jane Smith',
-      phone: '+12345678901',
-      payout_percentage: 0.8,
-      reliability_score: 95
-    };
+      // Create mock job with CORRECT property names from schema
+      const mockJob = {
+        id: jobId,
+        client_id: clientEmail,
+        client_email: clientEmail,
+        assigned_cleaner_id: cleanerEmail,
+        assigned_cleaner_email: cleanerEmail,
+        status: 'OFFERED', // legacy
+        state: 'OFFERED',
+        sub_state: 'NONE',
+        date: new Date().toISOString().split('T')[0],
+        time: '09:00', // ✅ CORRECT: scheduled time
+        duration_hours: 3, // ✅ CORRECT: not estimated_hours
+        pricing_snapshot: { // ✅ CORRECT: price is in snapshot
+          total_price: 120,
+          hourly_rate: 40,
+          base_price: 100,
+          breakdown: { base: 100, total: 120 }
+        },
+        latitude: 34.0522,
+        longitude: -118.2437,
+        address: '123 Main St, Los Angeles, CA 90012',
+        cleaning_type: 'deep',
+        bedrooms: 2,
+        bathrooms: 2,
+        square_feet: 1200,
+        // Timestamps (all null initially)
+        created_at: new Date().toISOString(),
+        assigned_at: null,
+        start_at: null,
+        end_at: null,
+        // Flags
+        has_pending_extra_time_request: false,
+        has_pending_reschedule_request: false,
+        requires_before_photos: true,
+        requires_after_photos: true,
+        before_photos_count: 0,
+        after_photos_count: 0
+      };
 
-    const mockClient = {
-      id: 'client_profile_1',
-      user_email: user?.email || 'client@test.com',
-      first_name: user?.first_name || 'John',
-      phone: user?.phone || '+19876543210'
-    };
+      const mockCleaner = {
+        id: 'cleaner_profile_test',
+        user_email: cleanerEmail,
+        name: 'Jane Smith',
+        phone: '+12345678901',
+        payout_percentage: 0.8,
+        reliability_score: 95
+      };
 
-    setTestJob(mockJob);
-    setTestCleaner(mockCleaner);
-    setTestClient(mockClient);
+      const mockClient = {
+        id: 'client_profile_test',
+        user_email: clientEmail,
+        first_name: user?.first_name || 'John',
+        phone: user?.phone || '+19876543210'
+      };
+
+      // Try to create entities in backend (best effort - may fail if not logged in)
+      try {
+        // Create or update the test job in the backend
+        await base44.entities.Booking.create(mockJob);
+        console.log('[NotificationTestPage] Created test job in backend:', jobId);
+
+        // Create or update cleaner profile
+        const existingCleaners = await base44.entities.CleanerProfile.filter({ 
+          user_email: cleanerEmail 
+        });
+        if (existingCleaners.length === 0) {
+          await base44.entities.CleanerProfile.create(mockCleaner);
+          console.log('[NotificationTestPage] Created test cleaner profile');
+        }
+
+        // Create or update client profile  
+        const existingClients = await base44.entities.ClientProfile.filter({ 
+          user_email: clientEmail 
+        });
+        if (existingClients.length === 0) {
+          await base44.entities.ClientProfile.create(mockClient);
+          console.log('[NotificationTestPage] Created test client profile');
+        }
+      } catch (backendError) {
+        console.log('[NotificationTestPage] Could not create backend entities (not logged in?):', backendError.message);
+        console.log('[NotificationTestPage] Using local mock data only');
+      }
+
+      setTestJob(mockJob);
+      setTestCleaner(mockCleaner);
+      setTestClient(mockClient);
+    } catch (error) {
+      console.error('[NotificationTestPage] Error creating test data:', error);
+    }
   };
 
   const addNotificationLog = (source, data) => {

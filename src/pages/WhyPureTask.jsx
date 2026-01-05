@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
   Shield, TrendingUp, Camera, MapPin, Star, Users,
-  CheckCircle, Award, Zap, Target, Heart, Sparkles
+  CheckCircle, Sparkles
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

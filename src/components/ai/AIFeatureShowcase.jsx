@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  Sparkles, MessageSquare, Calendar, TrendingUp, Target, 
+  Sparkles, MessageSquare, Calendar, TrendingUp, 
   CheckCircle, Star, Clock, DollarSign, Users 
 } from 'lucide-react';
 import { motion } from 'framer-motion';

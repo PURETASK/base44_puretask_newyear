@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { handleError } from '@/lib/errorHandler';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Switch } from '@/components/ui/switch';
-import { Checkbox } from '@/components/ui/checkbox';
 import { 
-  User as UserIcon, Mail, Phone, MapPin, Award, Shield, Edit2, Save, X, CheckCircle, 
-  Sparkles, Star, Briefcase, Loader2, DollarSign, Clock, Calendar, MessageSquare, 
-  Camera, Video, Palette, Tag, Settings, Bell, Zap, TrendingUp, Image, AlertTriangle
+  User as UserIcon, Mail, Phone, MapPin, Shield, Edit2, Save, X, CheckCircle, 
+  Sparkles, Star, Briefcase, Loader2, DollarSign, Calendar, MessageSquare, 
+  Camera, Settings
 } from 'lucide-react';
 import ReliabilityMeterV2 from '../components/reliability/ReliabilityMeterV2';
 import AddressAutocomplete from '../components/address/AddressAutocomplete';
 import { getTierColorClasses, getProductColors } from '../components/utils/colorSystem';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { 
   ProfileTab, 

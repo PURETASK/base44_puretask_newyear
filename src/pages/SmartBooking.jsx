@@ -11,8 +11,8 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import AddressAutocomplete from '../components/address/AddressAutocomplete';
 import { 
-  Calendar, Clock, Sparkles, Loader2, MapPin, CheckCircle2, 
-  XCircle, RefreshCw, Bot, Home, AlertCircle
+  Calendar, Clock, Sparkles, Loader2, 
+  XCircle, RefreshCw, Bot, AlertCircle
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'framer-motion';

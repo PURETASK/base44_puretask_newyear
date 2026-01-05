@@ -3,11 +3,11 @@ import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge'; // Badge is still used in the original component but removed from the outline's CardHeader. I will remove it from the CardHeader but keep the import in case other parts of the original code were using it, but since it's not present in the new outline's JSX, I'll remove it.
+// Badge is still used in the original component but removed from the outline's CardHeader. I will remove it from the CardHeader but keep the import in case other parts of the original code were using it, but since it's not present in the new outline's JSX, I'll remove it.
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Progress } from '@/components/ui/progress';
-import { Camera, Upload, X, CheckCircle, AlertCircle, Loader2, Image as ImageIcon } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion'; // AnimatePresence was used for message, which is removed. I'll keep motion for photo grid.
+import { Camera, Upload, X, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { motion } from 'framer-motion'; // AnimatePresence was used for message, which is removed. I'll keep motion for photo grid.
 import { analytics } from '../analytics/AnalyticsService';
 import { toast } from 'sonner'; // Added for toast notifications
 

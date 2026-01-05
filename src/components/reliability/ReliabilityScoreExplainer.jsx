@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Info, CheckCircle2, XCircle, AlertCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { Info, CheckCircle2, XCircle, AlertCircle, ChevronDown } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { motion, AnimatePresence } from 'framer-motion';
 

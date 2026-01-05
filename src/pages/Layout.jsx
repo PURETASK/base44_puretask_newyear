@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { handleError } from '@/lib/errorHandler';
 import { cacheManager } from '@/lib/cacheManager';
 import { Link, useNavigate, useLocation } from 'react-router-dom';

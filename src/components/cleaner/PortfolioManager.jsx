@@ -8,7 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { 
   Camera, Plus, X, Upload, Loader2, Star, 
-  ChevronLeft, ChevronRight, Sparkles 
+  ChevronLeft, ChevronRight 
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 

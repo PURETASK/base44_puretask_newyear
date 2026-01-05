@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { base44 } from '@/api/base44Client';
-import { Copy, CheckCircle } from 'lucide-react';
+import { Copy } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function CopyLastBookingButton({ userEmail, onCopy }) {

@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { base44 } from '@/api/base44Client';
 import { toast } from 'sonner';
-import { Clock, MapPin, Camera, CheckCircle, AlertCircle, Calendar, Home } from 'lucide-react';
+import { Clock, MapPin, CheckCircle, AlertCircle, Calendar, Home } from 'lucide-react';
 
 const QUICK_RESPONSES = {
   cleaner_to_client: [

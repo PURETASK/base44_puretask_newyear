@@ -7,8 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import {
-  Sparkles, Wind, Grid, ChefHat, Refrigerator, Lightbulb, Package, Home,
-  Zap, ArrowRight, ArrowLeft, Plus, Minus, ShoppingCart, Info, Loader2, DollarSign
+  Sparkles, Wind, Grid, ChefHat, Refrigerator, Package, Home, ArrowRight, ArrowLeft, Plus, Minus, ShoppingCart, Loader2, DollarSign
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

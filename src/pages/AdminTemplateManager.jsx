@@ -4,13 +4,10 @@ import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
-import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
-  Mail, MessageSquare, Bell, Edit2, Save, X, Plus, 
-  CheckCircle, Loader2, Search, Filter, RefreshCw 
+  Mail, MessageSquare, Bell, Plus, Loader2, Search, Filter, RefreshCw 
 } from 'lucide-react';
 import { seedTemplates } from '../components/templates/TemplateSeeder';
 import { toast } from 'sonner';

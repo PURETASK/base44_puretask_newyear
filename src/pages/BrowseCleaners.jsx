@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { handleError } from '@/lib/errorHandler';
 import { useNavigate } from 'react-router-dom';
-import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Loader2, AlertCircle } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 import EnhancedCleanerCard from '../components/cleaner/EnhancedCleanerCard';
 import StickyFiltersBar from '@/components/cleaner/StickyFiltersBar';
 import AdvancedFiltersPanel from '@/components/cleaner/AdvancedFiltersPanel';

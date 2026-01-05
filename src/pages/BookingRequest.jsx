@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Textarea } from '@/components/ui/textarea';
 import {
-  Sparkles, Send, MapPin, Calendar, Clock, User, DollarSign, 
+  Sparkles, Send, MapPin, Calendar, Clock, DollarSign, 
   CheckCircle, ArrowLeft, Loader2, Star, Info, Home, Package, TrendingUp, Award, Briefcase
 } from 'lucide-react';
 import { motion } from 'framer-motion';

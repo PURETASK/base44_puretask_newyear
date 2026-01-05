@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Shield, Lock, CheckCircle2, HelpCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import {

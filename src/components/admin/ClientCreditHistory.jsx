@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import {
   Table,
   TableBody,
@@ -11,7 +10,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { History, TrendingUp, TrendingDown, Loader2, ArrowUpCircle, ArrowDownCircle } from 'lucide-react';
+import { History, Loader2, ArrowUpCircle, ArrowDownCircle } from 'lucide-react';
 import { format } from 'date-fns';
 
 export default function ClientCreditHistory({ clientEmail }) {

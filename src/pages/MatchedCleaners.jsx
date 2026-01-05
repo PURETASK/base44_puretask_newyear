@@ -8,11 +8,9 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import {
-  Sparkles, Star, MapPin, Clock, Shield, Heart, Loader2, ArrowLeft,
-  Calendar, CheckCircle, TrendingUp, Award, Info, Filter
+  Sparkles, Star, Loader2, ArrowLeft, Award
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import CleanerCard from '../components/cleaner/CleanerCard';
 
 export default function MatchedCleaners() {
   const navigate = useNavigate();

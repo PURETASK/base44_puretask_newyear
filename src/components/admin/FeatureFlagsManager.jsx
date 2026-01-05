@@ -15,7 +15,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Flag, Plus, Edit, Trash2, AlertCircle, CheckCircle, Users, Zap, Loader2 } from 'lucide-react';
+import { Flag, Plus, Edit, Trash2, AlertCircle, CheckCircle, Users, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 

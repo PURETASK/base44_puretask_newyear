@@ -4,11 +4,8 @@ import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { 
-  BarChart3, TrendingUp, DollarSign, Users, AlertCircle, 
-  Calendar, ArrowRight, Loader2, Activity, Zap 
+import { TrendingUp, DollarSign, Users, AlertCircle, ArrowRight, Loader2, Activity, Zap 
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 

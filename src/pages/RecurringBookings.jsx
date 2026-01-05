@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import {
-  Calendar, Clock, MapPin, DollarSign, Plus, Pause, Play, Trash2,
-  Loader2, RefreshCw, AlertCircle, CheckCircle, Sparkles, User
+  Calendar, MapPin, DollarSign, Plus, Pause, Play, Trash2,
+  Loader2, RefreshCw, CheckCircle, Sparkles, User
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { format, addDays, addWeeks, addMonths, parseISO } from 'date-fns';
+import { motion } from 'framer-motion';
+import { format, addWeeks, addMonths, parseISO } from 'date-fns';
 import {
   Dialog,
   DialogContent,
@@ -21,10 +21,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
 import { convertTo12Hour } from '../components/utils/timeUtils';
-import { creditsToUSD } from '../components/credits/CreditCalculator';
 import { toast } from 'sonner';
 
 export default function RecurringBookings() {

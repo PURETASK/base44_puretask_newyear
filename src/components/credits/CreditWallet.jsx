@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Wallet, Plus, History, DollarSign, Sparkles } from 'lucide-react';
-import { usdToCredits, creditsToUSD, CREDITS_PER_USD } from './CreditCalculator';
+import { Wallet, Plus, History, DollarSign } from 'lucide-react';
+import { usdToCredits, creditsToUSD } from './CreditCalculator';
 import { motion } from 'framer-motion';
 
 const CREDIT_PACKAGES = [

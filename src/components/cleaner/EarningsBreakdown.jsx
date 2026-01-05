@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { DollarSign, TrendingUp, Calendar, Award, AlertCircle } from 'lucide-react';
-import { creditsToUSD, formatUSD, formatCredits } from '../credits/CreditCalculator';
+import { formatUSD, formatCredits } from '../credits/CreditCalculator';
 
 export default function EarningsBreakdown({ earnings, profile }) {
   // Calculate totals

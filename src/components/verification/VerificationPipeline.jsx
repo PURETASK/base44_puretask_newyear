@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { base44 } from '@/api/base44Client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Shield, CheckCircle, Clock, XCircle, AlertTriangle, Loader2 } from 'lucide-react';
+import { Shield, CheckCircle, Clock, XCircle, AlertTriangle } from 'lucide-react';
 
 export default function VerificationPipeline({ user, onVerificationComplete }) {
   const [kycStatus, setKycStatus] = useState('pending');

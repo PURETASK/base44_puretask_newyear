@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Flag, CheckCircle, XCircle, Eye, Loader2, Trash2 } from 'lucide-react';
 import { formatBookingDate } from '../utils/dateHelpers';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';

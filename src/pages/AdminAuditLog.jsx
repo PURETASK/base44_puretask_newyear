@@ -3,12 +3,11 @@ import { handleError } from '@/lib/errorHandler';
 import { useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 import { base44 } from '@/api/base44Client';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { AdminPermissions } from '@/components/admin/AdminPermissions';
-import { FileText, Search, Loader2, Shield } from 'lucide-react';
+import { FileText, Loader2, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function AdminAuditLog() {

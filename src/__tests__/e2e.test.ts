@@ -8,6 +8,28 @@
  * They test the integration of all systems working together.
  */
 
+// Type definitions for tests
+interface MockJobQuery {
+  assigned_cleaner_email?: string;
+  [key: string]: any;
+}
+
+interface MockJob {
+  id: string;
+  assigned_cleaner_email?: string | null;
+  [key: string]: any;
+}
+
+interface MockFile {
+  name: string;
+  [key: string]: any;
+}
+
+interface MockLLMParams {
+  messages: Array<{ content: string; role: string }>;
+  [key: string]: any;
+}
+
 // Mock Base44 SDK for testing
 const mockBase44 = {
   auth: {
@@ -20,23 +42,23 @@ const mockBase44 = {
   },
   entities: {
     Job: {
-      filter: async (query) => {
+      filter: async (query: MockJobQuery): Promise<MockJob[]> => {
         // Mock job data
-        return mockJobs.filter(job => {
+        return mockJobs.filter((job: MockJob) => {
           if (query.assigned_cleaner_email) {
             return job.assigned_cleaner_email === query.assigned_cleaner_email;
           }
           return true;
         });
       },
-      getOne: async (id) => mockJobs.find(j => j.id === id),
-      update: async (id, data) => {
-        const job = mockJobs.find(j => j.id === id);
+      getOne: async (id: string): Promise<MockJob | undefined> => mockJobs.find((j: MockJob) => j.id === id),
+      update: async (id: string, data: Partial<MockJob>): Promise<any> => {
+        const job = mockJobs.find((j: MockJob) => j.id === id);
         return { ...job, ...data };
       }
     },
     CleanerProfile: {
-      filter: async (query) => [{
+      filter: async (query: { user_email: string }) => [{
         id: 'profile-123',
         user_email: query.user_email,
         reliability_score: 92,
@@ -46,14 +68,14 @@ const mockBase44 = {
     }
   },
   files: {
-    uploadFile: async (file) => ({
+    uploadFile: async (file: MockFile) => ({
       id: `photo-${Date.now()}`,
       url: `https://storage.example.com/${file.name}`
     })
   },
   integrations: {
     Core: {
-      InvokeLLM: async (params) => ({
+      InvokeLLM: async (params: MockLLMParams) => ({
         choices: [{
           message: {
             content: 'Mock AI response: ' + JSON.stringify(params.messages[params.messages.length - 1])
@@ -65,7 +87,7 @@ const mockBase44 = {
 };
 
 // Mock job data
-const mockJobs = [
+const mockJobs: MockJob[] = [
   {
     id: 'job-001',
     state: 'OFFERED',
@@ -105,21 +127,21 @@ const mockJobs = [
 
 // Test utilities
 const testUtils = {
-  log: (testName, status, details = '') => {
+  log: (testName: string, status: 'PASS' | 'FAIL' | 'RUNNING', details: string = '') => {
     const icon = status === 'PASS' ? '✅' : status === 'FAIL' ? '❌' : '🔄';
     console.log(`${icon} ${testName}`);
     if (details) console.log(`   ${details}`);
   },
   
-  delay: (ms) => new Promise(resolve => setTimeout(resolve, ms)),
+  delay: (ms: number): Promise<void> => new Promise(resolve => setTimeout(resolve, ms)),
   
   mockGPS: (nearJob = true) => ({
     lat: nearJob ? 34.0522 : 34.1522, // Near or far
     lng: nearJob ? -118.2437 : -118.2437
   }),
   
-  mockPhoto: (quality = 'good') => {
-    const qualities = {
+  mockPhoto: (quality: 'good' | 'dark' | 'blurry' = 'good') => {
+    const qualities: Record<'good' | 'dark' | 'blurry', { name: string; size: number }> = {
       good: { name: 'good_photo.jpg', size: 2048 * 1024 },
       dark: { name: 'dark_photo.jpg', size: 1024 * 1024 },
       blurry: { name: 'blurry_photo.jpg', size: 1536 * 1024 }
@@ -198,7 +220,7 @@ async function e2eTest1_CompleteWorkflow() {
     testUtils.log('Step 7: Upload Before Photos (3)', 'PASS');
     for (let i = 1; i <= 3; i++) {
       const photo = testUtils.mockPhoto('good');
-      const upload = await mockBase44.files.uploadFile(photo);
+      await mockBase44.files.uploadFile(photo);
       await mockBase44.entities.Job.update('job-001', {
         before_photos_count: i
       });
@@ -213,7 +235,7 @@ async function e2eTest1_CompleteWorkflow() {
     testUtils.log('Step 9: Upload After Photos (3)', 'PASS');
     for (let i = 1; i <= 3; i++) {
       const photo = testUtils.mockPhoto('good');
-      const upload = await mockBase44.files.uploadFile(photo);
+      await mockBase44.files.uploadFile(photo);
       await mockBase44.entities.Job.update('job-001', {
         after_photos_count: i
       });
@@ -251,7 +273,7 @@ async function e2eTest1_CompleteWorkflow() {
     return passedSteps === totalSteps;
     
   } catch (error) {
-    console.error('❌ E2E Test 1 Failed:', error.message);
+    console.error('❌ E2E Test 1 Failed:', error instanceof Error ? error.message : String(error));
     return false;
   }
 }
@@ -269,13 +291,12 @@ async function e2eTest2_PhotoValidation() {
   try {
     // Step 1: Start job
     testUtils.log('Step 1: Job In Progress', 'PASS');
-    const job = mockJobs[1];
     results.push({ step: 'Setup', passed: true });
     
     // Step 2: Upload dark photo (should fail validation)
     testUtils.log('Step 2: Upload Dark Photo', 'PASS', 'Expected to fail validation');
     const darkPhoto = testUtils.mockPhoto('dark');
-    const upload1 = await mockBase44.files.uploadFile(darkPhoto);
+    await mockBase44.files.uploadFile(darkPhoto);
     // Simulate AI validation
     const validation1 = {
       score: 58,
@@ -293,7 +314,7 @@ async function e2eTest2_PhotoValidation() {
     // Step 4: Retake photo with better lighting
     testUtils.log('Step 4: Retake Photo (Improved)', 'PASS');
     const goodPhoto = testUtils.mockPhoto('good');
-    const upload2 = await mockBase44.files.uploadFile(goodPhoto);
+    await mockBase44.files.uploadFile(goodPhoto);
     const validation2 = {
       score: 92,
       passed: true,
@@ -319,7 +340,7 @@ async function e2eTest2_PhotoValidation() {
     return passedSteps === totalSteps;
     
   } catch (error) {
-    console.error('❌ E2E Test 2 Failed:', error.message);
+    console.error('❌ E2E Test 2 Failed:', error instanceof Error ? error.message : String(error));
     return false;
   }
 }
@@ -338,7 +359,7 @@ async function e2eTest3_ExtraTimeRequest() {
     // Step 1: Job in progress, running long
     testUtils.log('Step 1: Job Running Long', 'PASS', '2.5 hours elapsed, 3 hours booked');
     const job = await mockBase44.entities.Job.getOne('job-002');
-    results.push({ step: 'In Progress', passed: job.state === 'ASSIGNED' });
+    results.push({ step: 'In Progress', passed: job?.state === 'ASSIGNED' });
     
     // Step 2: Request 30 extra minutes
     testUtils.log('Step 2: Request Extra Time', 'PASS', '30 minutes requested');
@@ -375,7 +396,7 @@ async function e2eTest3_ExtraTimeRequest() {
     return passedSteps === totalSteps;
     
   } catch (error) {
-    console.error('❌ E2E Test 3 Failed:', error.message);
+    console.error('❌ E2E Test 3 Failed:', error instanceof Error ? error.message : String(error));
     return false;
   }
 }
@@ -393,7 +414,6 @@ async function e2eTest4_AIChatAssistant() {
   try {
     // Step 1: Job assigned, cleaner has questions
     testUtils.log('Step 1: Job Assigned', 'PASS');
-    const job = mockJobs[1];
     results.push({ step: 'Setup', passed: true });
     
     // Step 2: Ask about en route process
@@ -450,7 +470,7 @@ async function e2eTest4_AIChatAssistant() {
     return passedSteps === totalSteps;
     
   } catch (error) {
-    console.error('❌ E2E Test 4 Failed:', error.message);
+    console.error('❌ E2E Test 4 Failed:', error instanceof Error ? error.message : String(error));
     return false;
   }
 }
@@ -514,7 +534,7 @@ async function e2eTest5_RouteOptimization() {
     return passedSteps === totalSteps;
     
   } catch (error) {
-    console.error('❌ E2E Test 5 Failed:', error.message);
+    console.error('❌ E2E Test 5 Failed:', error instanceof Error ? error.message : String(error));
     return false;
   }
 }
@@ -561,7 +581,7 @@ async function runAllE2ETests() {
   console.log('📊 E2E TEST SUITE SUMMARY');
   console.log('='.repeat(70) + '\n');
   
-  testResults.forEach((result, index) => {
+  testResults.forEach((result, _index) => {
     const icon = result.passed ? '✅' : '❌';
     console.log(`${icon} ${result.name}`);
   });
