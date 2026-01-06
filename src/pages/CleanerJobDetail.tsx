@@ -1,9 +1,9 @@
 // CleanerJobDetail - AI-Powered Job Workflow Component
 // Handles entire job lifecycle from acceptance to completion
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { base44 } from '@/api/base44Client';
+import base44 from '@/api/base44Client';
 import { cleanerJobsService } from '@/services/cleanerJobsService';
 import type { JobRecord } from '@/types/cleanerJobTypes';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,13 +11,12 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import {
-  MapPin, Clock, DollarSign, Camera, CheckCircle, AlertTriangle,
-  Navigation, PlayCircle, StopCircle, Upload, MessageSquare,
-  Zap, Timer, Info, ChevronRight, Loader2
+  MapPin, Clock, CheckCircle, AlertTriangle,
+  Navigation, PlayCircle, Loader2,
+  Zap, Timer, Info
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
-import { format } from 'date-fns';
 import { FloatingAIAssistant } from '@/components/ai/CleanerAIChatAssistant';
 
 export default function CleanerJobDetail() {
@@ -34,8 +33,8 @@ export default function CleanerJobDetail() {
   const [locationError, setLocationError] = useState<string>('');
   
   // Photo state
-  const [beforePhotos, setBeforePhotos] = useState<File[]>([]);
-  const [afterPhotos, setAfterPhotos] = useState<File[]>([]);
+  const [_beforePhotos, _setBeforePhotos] = useState<File[]>([]);
+  const [_afterPhotos, _setAfterPhotos] = useState<File[]>([]);
   const [uploading, setUploading] = useState<boolean>(false);
   
   // Extra time state
@@ -97,7 +96,7 @@ export default function CleanerJobDetail() {
             lng: position.coords.longitude
           });
         },
-        (error) => {
+        (_error) => {
           setLocationError('Unable to get your location. Please enable GPS.');
         },
         { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }

@@ -80,69 +80,56 @@ export interface Base44AuthMethods {
 // ENTITY METHODS
 // ============================================================================
 
-export interface Base44EntityMethods {
+export interface Base44EntityOperations<T = Base44Entity> {
   /**
    * List entities with optional filtering and pagination
    */
-  list<T = Base44Entity>(
-    entityName: string,
-    params?: Base44QueryParams
-  ): Promise<Base44ListResponse<T>>;
+  list(params?: Base44QueryParams): Promise<Base44ListResponse<T>>;
   
   /**
    * Get a single entity by ID
    */
-  get<T = Base44Entity>(
-    entityName: string,
-    id: string
-  ): Promise<T>;
+  get(id: string): Promise<T>;
   
   /**
    * Create a new entity
    */
-  create<T = Base44Entity>(
-    entityName: string,
-    data: Partial<T>
-  ): Promise<T>;
+  create(data: Partial<T>): Promise<T>;
   
   /**
    * Update an existing entity
    */
-  update<T = Base44Entity>(
-    entityName: string,
-    id: string,
-    data: Partial<T>
-  ): Promise<T>;
+  update(id: string, data: Partial<T>): Promise<T>;
   
   /**
    * Delete an entity
    */
-  delete(entityName: string, id: string): Promise<void>;
+  delete(id: string): Promise<void>;
+  
+  /**
+   * Filter entities (returns array)
+   */
+  filter(params: Record<string, any>): Promise<T[]>;
   
   /**
    * Batch operations
    */
-  batchCreate<T = Base44Entity>(
-    entityName: string,
-    data: Partial<T>[]
-  ): Promise<T[]>;
+  batchCreate(data: Partial<T>[]): Promise<T[]>;
   
-  batchUpdate<T = Base44Entity>(
-    entityName: string,
-    updates: Array<{ id: string; data: Partial<T> }>
-  ): Promise<T[]>;
+  batchUpdate(updates: Array<{ id: string; data: Partial<T> }>): Promise<T[]>;
   
-  batchDelete(
-    entityName: string,
-    ids: string[]
-  ): Promise<void>;
-  
+  batchDelete(ids: string[]): Promise<void>;
+}
+
+export interface Base44EntityMethods {
   // Common entity types for autocomplete
-  PushSubscription: Base44EntityMethods;
-  Notification: Base44EntityMethods;
-  User: Base44EntityMethods;
-  Booking: Base44EntityMethods;
-  [entityName: string]: any; // Allow any entity name
+  PushSubscription: Base44EntityOperations;
+  Notification: Base44EntityOperations;
+  User: Base44EntityOperations;
+  Booking: Base44EntityOperations;
+  CleanerProfile: Base44EntityOperations;
+  ClientProfile: Base44EntityOperations;
+  [entityName: string]: Base44EntityOperations; // Allow any entity name
 }
 
 // ============================================================================

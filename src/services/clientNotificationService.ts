@@ -1,11 +1,11 @@
 // Client Notification Service
 // Real-time notifications for clients about their jobs
 
-import { base44 } from '@/api/base44Client';
+import base44 from '@/api/base44Client';
 import { NotificationService } from '@/components/notifications/NotificationService';
 import EmailService from '@/components/notifications/EmailNotificationService';
 import type { JobRecord } from '@/types/cleanerJobTypes';
-import { jobEventBus, type JobEvent } from './jobEvents';
+import { jobEventBus } from './jobEvents';
 
 export interface ClientNotificationContext {
   job: JobRecord;
@@ -255,7 +255,7 @@ export class ClientNotificationService {
    * CRITICAL: Reduces client anxiety significantly
    */
   async notifyCleanerArrived(context: ClientNotificationContext) {
-    const { job, client, cleaner } = context;
+    const { job, client: _client, cleaner } = context;
 
     console.log(`[ClientNotificationService] Notifying client: Cleaner arrived`);
 
@@ -284,7 +284,7 @@ export class ClientNotificationService {
    * Notify client that cleaning has started
    */
   async notifyJobStarted(context: ClientNotificationContext) {
-    const { job, client, cleaner } = context;
+    const { job, client: _client, cleaner } = context;
 
     console.log(`[ClientNotificationService] Notifying client: Job started`);
 
@@ -323,7 +323,7 @@ export class ClientNotificationService {
    * Notify client that photos have been uploaded
    */
   async notifyPhotosUploaded(context: ClientNotificationContext & { photoType: 'before' | 'after' }) {
-    const { job, client, cleaner, photoType } = context;
+    const { job, client: _client, cleaner, photoType } = context;
 
     console.log(`[ClientNotificationService] Notifying client: ${photoType} photos uploaded`);
 
